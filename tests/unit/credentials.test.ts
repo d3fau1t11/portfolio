@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { credentials } from '../../src/data/credentials'
 import { projects } from '../../src/data/projects'
 import { filterCredentials } from '../../src/lib/credentials'
+import { certificateAssets } from '../../src/data/certificate-assets'
 
 describe('credential discovery', () => {
   it('retains 21 unique documents and their distinct award types', () => {
@@ -30,6 +31,22 @@ describe('credential discovery', () => {
 })
 
 describe('content boundaries', () => {
+  it('connects every award to an approved display document and preview', () => {
+    expect(Object.keys(certificateAssets).sort()).toEqual(credentials.map((item) => item.slug).sort())
+    for (const credential of credentials) {
+      const asset = certificateAssets[credential.slug]
+      expect(asset.file).toBe(`certificates/${credential.slug}.pdf`)
+      expect(asset.sha256).toMatch(/^[a-f0-9]{64}$/)
+      expect(asset.pages).toHaveLength(1)
+      expect(asset.pages[0].file).toBe(`certificates/${credential.slug}.webp`)
+      expect(asset.pages[0].sha256).toMatch(/^[a-f0-9]{64}$/)
+      expect(asset.pages[0].width).toBeGreaterThan(0)
+      expect(asset.pages[0].height).toBeGreaterThan(0)
+    }
+    for (const slug of ['icca-ctf', 'insa-summer-camp', 'udacity-android']) {
+      expect(certificateAssets[slug].pages[0].width).toBeGreaterThan(certificateAssets[slug].pages[0].height)
+    }
+  })
   it('omits date normalization where the source convention is unresolved', () => {
     expect(credentials.filter((item) => item.issuer === 'Fortinet Training Institute').every((item) => item.date === null)).toBe(true)
     expect(credentials.find((item) => item.slug === 'great-learning-cyber-security')?.date).toBe('June 2024')
@@ -80,7 +97,7 @@ describe('content boundaries', () => {
       'https://mezmuredawit.netlify.app/',
       'https://harypictures.netlify.app/',
     ])
-    expect(projects.find((item) => item.slug === 'green-africa-farms')?.repositoryVisibility).toBe('private')
+    expect(projects.find((item) => item.slug === 'green-africa-farms')?.repositoryVisibility).toBe('public')
   })
 })
 

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { readdir, readFile, stat } from 'node:fs/promises'
 import { resolve, relative, extname } from 'node:path'
 import { gzipSync } from 'node:zlib'
+import { createHash } from 'node:crypto'
 
 const base = '/portfolio/'
 const output = resolve('dist')
@@ -10,6 +11,19 @@ assert.equal(writeupSlugs.length, 30, 'Expected 30 supplied write-ups')
 const pages = ['index.html', 'certifications/index.html', 'writeups/index.html', ...writeupSlugs.map((slug) => 'writeups/' + slug + '/index.html')]
 const files = []
 const approvedArtwork = new Set(['favicon.svg', 'social-card.svg', 'social-card.png'])
+const certificateAssets = JSON.parse(await readFile(resolve('src/data/certificate-assets.json'), 'utf8'))
+const reviewedCertificateFiles = new Map()
+assert.equal(Object.keys(certificateAssets).length, 21, 'Expected 21 reviewed certificate display copies')
+for (const [slug, asset] of Object.entries(certificateAssets)) {
+  assert.equal(asset.file, 'certificates/' + slug + '.pdf', 'Invalid reviewed document path')
+  assert.equal(asset.pages.length, 1, 'Expected one nonblank display page per certificate')
+  reviewedCertificateFiles.set(asset.file, asset.sha256)
+  for (const page of asset.pages) {
+    assert.equal(page.file, 'certificates/' + slug + '.webp', 'Invalid reviewed preview path')
+    assert(page.width > 0 && page.height > 0, 'Missing preview dimensions')
+    reviewedCertificateFiles.set(page.file, page.sha256)
+  }
+}
 
 async function collect(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
@@ -29,10 +43,20 @@ const forbidden = [
   /opswatacademy\.com\/certificate/i,
 ]
 for (const path of files) {
-  assert(!/\.(pdf|jpe?g)$/i.test(path), 'Unreviewed document/image in output: ' + relative(output, path))
+  const name = relative(output, path).replaceAll('\\', '/')
+  if (/\.(pdf|jpe?g)$/i.test(path)) {
+    assert(reviewedCertificateFiles.has(name), 'Unreviewed document/image in output: ' + name)
+  }
   if (/\.(svg|png|webp|gif|avif)$/i.test(path)) {
-    const name = relative(output, path).replaceAll('\\', '/')
-    assert(approvedArtwork.has(name), 'Artwork requires publication review: ' + name)
+    assert(approvedArtwork.has(name) || reviewedCertificateFiles.has(name), 'Artwork requires publication review: ' + name)
+  }
+  if (reviewedCertificateFiles.has(name)) {
+    const bytes = await readFile(path)
+    const expectedHash = reviewedCertificateFiles.get(name)
+    assert.match(expectedHash, /^[a-f0-9]{64}$/, 'Missing reviewed asset hash')
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), expectedHash, 'Certificate copy changed after review: ' + name)
+    if (name.endsWith('.pdf')) assert.equal(bytes.subarray(0, 5).toString(), '%PDF-', 'Invalid certificate PDF: ' + name)
+    else assert.equal(bytes.subarray(8, 12).toString(), 'WEBP', 'Invalid certificate preview: ' + name)
   }
   if (/\.(html|js|css|json|xml|txt)$/i.test(path)) {
     const text = await readFile(path, 'utf8')
@@ -42,6 +66,8 @@ for (const path of files) {
     for (const pattern of forbidden) assert(!pattern.test(reviewed), 'Private/excluded content in ' + relative(output, path))
   }
 }
+assert.deepEqual(files.map((path) => relative(output, path).replaceAll('\\', '/'))
+  .filter((name) => name.startsWith('certificates/')).sort(), [...reviewedCertificateFiles.keys()].sort(), 'Reviewed certificate assets missing or unexpected files present')
 assert.equal(files.filter((path) => path.endsWith('.html')).length, 33, 'Expected 33 actual static HTML pages')
 
 for (const page of pages) {
@@ -94,9 +120,11 @@ assert.deepEqual([...projectSection.matchAll(/class="text-link project-demo" hre
   'https://mezmuredawit.netlify.app/',
   'https://harypictures.netlify.app/',
 ], 'Supplied live-site links missing or changed')
-assert(projectSection.includes('Private repository for Green Africa Farms on GitHub'), 'Private source availability must be clear')
+assert(projectSection.includes('View repository for Green Africa Farms on GitHub'), 'Public Green Africa Farms source link missing')
 const credentialSection = home.match(/<section[^>]+id="credentials"[\s\S]*?<\/section>/)?.[0] ?? ''
 const featuredCredentials = [...credentialSection.matchAll(/class="credential-card[^"]*" id="([^"]+)"/g)].map((match) => match[1])
+assert.equal((credentialSection.match(/class="text-link certificate-view-link"/g) || []).length, 4, 'Featured certificate links missing')
+assert.equal((collection.match(/class="text-link certificate-view-link"/g) || []).length, 21, 'Certificate viewing links missing')
 assert.deepEqual(featuredCredentials, ['insa-summer-camp', 'iso-iec-27001-lead-auditor', 'fortigate-operator', 'opswat-icip'], 'Featured credentials missing or out of order')
 assert(!/hero-portrait|habtemariam-portrait|portrait-frame/i.test(home), 'Profile picture must be absent')
 assert(!files.some((path) => /habtemariam-portrait/i.test(path)), 'Removed portrait asset is still in output')
@@ -123,5 +151,5 @@ for (const path of files.filter((path) => /\.(js|css)$/.test(path))) {
 for (const bundle of bundles.sort((a, b) => b.bytes - a.bytes).slice(0, 3)) {
   process.stdout.write(bundle.name + ': ' + (bundle.bytes / 1024).toFixed(1) + ' KiB gzip\n')
 }
-process.stdout.write('Verified 33 real static pages, 11 projects, 6 live-site links, 4 featured credentials, 30 supplied write-ups, 21 credential records, picture removal, navigation and public-data boundaries.\n')
+process.stdout.write('Verified 33 real static pages, 11 projects, 6 live-site links, 4 featured credentials, 30 supplied write-ups, 21 viewable certificates, 42 reviewed certificate assets, picture removal, navigation and public-data boundaries.\n')
 

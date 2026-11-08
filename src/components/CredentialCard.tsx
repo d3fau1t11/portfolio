@@ -1,5 +1,7 @@
 import { CalendarDays, ChevronDown, FileBadge } from 'lucide-react'
 import type { Credential } from '../data/credentials'
+import { certificateAssets } from '../data/certificate-assets'
+import { CertificateViewer } from './CertificateViewer'
 
 export function CredentialCard({ credential }: { credential: Credential }) {
   return (
@@ -17,6 +19,7 @@ export function CredentialCard({ credential }: { credential: Credential }) {
         <p>{credential.summary}</p>
         <ul className="credential-topics" aria-label="Topics">{credential.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>
       </details>
+      <CertificateViewer credential={credential} asset={certificateAssets[credential.slug]} />
     </article>
   )
 }

@@ -50,7 +50,7 @@ test('home presents the requested profile, projects and working contact targets'
     await expect(link).toHaveAttribute('rel', 'noopener noreferrer')
     await expect(link).toHaveAttribute('target', '_blank')
   }
-  await expect(page.getByRole('link', { name: 'Private repository for Green Africa Farms on GitHub', exact: true })).toContainText('Private repository')
+  await expect(page.getByRole('link', { name: 'View repository for Green Africa Farms on GitHub', exact: true })).toContainText('View repository')
   await expect(page.locator('#credentials-title')).toHaveText('Learning, with something to show.')
   await expect(page.locator('#credentials .credential-card')).toHaveCount(4)
   await expect(page.locator('#credentials .credential-card').first()).toHaveAttribute('id', 'insa-summer-camp')
@@ -168,7 +168,7 @@ test('reduced motion disables smooth scrolling and decorative transitions', asyn
   await page.goto('./')
   expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(true)
   expect(await page.locator('html').evaluate((element) => getComputedStyle(element).scrollBehavior)).toBe('auto')
-  expect(await page.locator('.button-primary').evaluate((element) => getComputedStyle(element).transitionDuration)).toBe('0s')
+  expect(await page.getByRole('link', { name: 'View projects', exact: true }).evaluate((element) => getComputedStyle(element).transitionDuration)).toBe('0s')
   await page.locator('.mobile-menu summary').click()
   expect(await page.locator('.mobile-nav').evaluate((element) => getComputedStyle(element).animationName)).toBe('none')
 })

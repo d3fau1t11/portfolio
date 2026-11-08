@@ -1,0 +1,254 @@
+{
+  "iso-iec-27001-lead-auditor": {
+    "file": "certificates/iso-iec-27001-lead-auditor.pdf",
+    "sha256": "3df37786b1b9671c4c75ab25ca61bafa85b3f03f18bffffc5f1d852de64c45e8",
+    "pages": [
+      {
+        "file": "certificates/iso-iec-27001-lead-auditor.webp",
+        "sha256": "2dada381a9428b6e24439625584cdbea24e3e6b31e08d374218a94f745ee4586",
+        "width": 2400,
+        "height": 1697
+      }
+    ]
+  },
+  "fortigate-operator": {
+    "file": "certificates/fortigate-operator.pdf",
+    "sha256": "0bb2e558a7c340262e78f454d5c072675704c584406eab1c7e30b901dd131e60",
+    "pages": [
+      {
+        "file": "certificates/fortigate-operator.webp",
+        "sha256": "cbb7fd0092fb63dad72740ba7beb801a92aedcb4ae7bf41edb6bee47b72f567b",
+        "width": 2400,
+        "height": 1746
+      }
+    ]
+  },
+  "opswat-icip": {
+    "file": "certificates/opswat-icip.pdf",
+    "sha256": "0c640bb4931f9dbe247473f7c62989104124a6e60a860d3e14b559320122c767",
+    "pages": [
+      {
+        "file": "certificates/opswat-icip.webp",
+        "sha256": "98ced5b18c3a5cee8fae485f3689597baa9bf6b58ecf1173be48602036366fc4",
+        "width": 1280,
+        "height": 1010
+      }
+    ]
+  },
+  "htb-cyber-apocalypse": {
+    "file": "certificates/htb-cyber-apocalypse.pdf",
+    "sha256": "29e26b4ddfc977c5d363c8f40d8e3f9d1bb5984f5f939323308173ad1da089f1",
+    "pages": [
+      {
+        "file": "certificates/htb-cyber-apocalypse.webp",
+        "sha256": "bd827676fe9e500f737fc14f3395d81400934f9cb84cf81f3e9fbe788d115750",
+        "width": 2400,
+        "height": 1697
+      }
+    ]
+  },
+  "mpesa-api-integration": {
+    "file": "certificates/mpesa-api-integration.pdf",
+    "sha256": "a0243caa3ec1246eead943d5a744566e884cb6508930a48b315ec62f108ab23a",
+    "pages": [
+      {
+        "file": "certificates/mpesa-api-integration.webp",
+        "sha256": "292fe09450f9e0e65e9a18a88e4531c9a6432d9b019e39f6bcf12ade3deba51b",
+        "width": 2400,
+        "height": 1744
+      }
+    ]
+  },
+  "ethiopian-cybershield-2026": {
+    "file": "certificates/ethiopian-cybershield-2026.pdf",
+    "sha256": "e01415fc55ede11d2cf60b6bb94a0d9ac0d4333de42aa63fbaa38732b5314ffc",
+    "pages": [
+      {
+        "file": "certificates/ethiopian-cybershield-2026.webp",
+        "sha256": "7870e5e63654194ddaf4e0fa7350211e3a54c5e4ff5a6fab5d59d7e734502ccf",
+        "width": 2400,
+        "height": 1653
+      }
+    ]
+  },
+  "cybershield-showdown-2025": {
+    "file": "certificates/cybershield-showdown-2025.pdf",
+    "sha256": "024afe2679ce3cf20dfa148589a22729adc8804f316295df04db94e26d1fa4c5",
+    "pages": [
+      {
+        "file": "certificates/cybershield-showdown-2025.webp",
+        "sha256": "32ac6be967ef40686a5ad782438156ab144b1799c72ddb34d95c7e15312ef343",
+        "width": 2400,
+        "height": 1699
+      }
+    ]
+  },
+  "icca-ctf": {
+    "file": "certificates/icca-ctf.pdf",
+    "sha256": "c77e5cddf5f9ede0a2aafb498bfa298e49cfd392eff6772342edc3ae92db62e9",
+    "pages": [
+      {
+        "file": "certificates/icca-ctf.webp",
+        "sha256": "29a013442d04376a344165bdab34db099d5a0281f85f0c76032d2bef57bb50f1",
+        "width": 2191,
+        "height": 1613
+      }
+    ]
+  },
+  "insa-summer-camp": {
+    "file": "certificates/insa-summer-camp.pdf",
+    "sha256": "4249cfd370801c22df61623d61a3e7c8cc77577e523c906ff373a01065a1b301",
+    "pages": [
+      {
+        "file": "certificates/insa-summer-camp.webp",
+        "sha256": "f79a0a491985b8db88813e6498aa3d4014f14be771b16c17fc1736497627de0c",
+        "width": 2191,
+        "height": 1613
+      }
+    ]
+  },
+  "next-generation-firewall": {
+    "file": "certificates/next-generation-firewall.pdf",
+    "sha256": "3f0dec6f3f600dcd42ecc7213cba6ca00025d6cb68fb6112a36be0dcd54587e8",
+    "pages": [
+      {
+        "file": "certificates/next-generation-firewall.webp",
+        "sha256": "e6032df5036b66010baa694c393134b23a10def9f1c0e9d742d26bf5d821e519",
+        "width": 2400,
+        "height": 1746
+      }
+    ]
+  },
+  "cybersecurity-cloud-fundamentals": {
+    "file": "certificates/cybersecurity-cloud-fundamentals.pdf",
+    "sha256": "6bc2a6067524c443fce03d947032eaf01a4bfdf79492f03a4a42d28d2906ba3b",
+    "pages": [
+      {
+        "file": "certificates/cybersecurity-cloud-fundamentals.webp",
+        "sha256": "a984d4ff5a40b1887d460485a40a4309eacd539fde77ba8ba5e7213d4cff83b6",
+        "width": 2400,
+        "height": 1746
+      }
+    ]
+  },
+  "cisco-introduction-cybersecurity": {
+    "file": "certificates/cisco-introduction-cybersecurity.pdf",
+    "sha256": "37b0894370ed4e0e17ede1e7334cb2c0766ed934b0986a292a47064998749628",
+    "pages": [
+      {
+        "file": "certificates/cisco-introduction-cybersecurity.webp",
+        "sha256": "51970fa05d11d12a2c92c403db8765be7d4523c26b763d673b14557c42df9f85",
+        "width": 2400,
+        "height": 1626
+      }
+    ]
+  },
+  "great-learning-cyber-security": {
+    "file": "certificates/great-learning-cyber-security.pdf",
+    "sha256": "4714f37d9dc4432dcbc1867267ebb2bc715ca264492c3268d8a6894820cff5dd",
+    "pages": [
+      {
+        "file": "certificates/great-learning-cyber-security.webp",
+        "sha256": "550e787ab461bfcb6c50a93a4c66cd0dd1b66d0e66e49fcf4499e4d2f047659d",
+        "width": 2400,
+        "height": 1696
+      }
+    ]
+  },
+  "icann-cybersecurity-basics": {
+    "file": "certificates/icann-cybersecurity-basics.pdf",
+    "sha256": "4fa683bdd8c159555087c7c3511db5adb45f2c07e4940821cd9045e34c5b2124",
+    "pages": [
+      {
+        "file": "certificates/icann-cybersecurity-basics.webp",
+        "sha256": "4a460157d1884d265220708e24123938ec83aee792336e082fc515b680cbae30",
+        "width": 2400,
+        "height": 1855
+      }
+    ]
+  },
+  "icann-public-meetings": {
+    "file": "certificates/icann-public-meetings.pdf",
+    "sha256": "8306ef9240e65876aa8a26e33d6e76388818b7645cf4e601c0c414b1c87ec9e1",
+    "pages": [
+      {
+        "file": "certificates/icann-public-meetings.webp",
+        "sha256": "5c4da87d41aa7ef95c3458605558918966f3692c370bb00c8fa7b39493828205",
+        "width": 2400,
+        "height": 1855
+      }
+    ]
+  },
+  "ai-builder-hackathon": {
+    "file": "certificates/ai-builder-hackathon.pdf",
+    "sha256": "d54347f8185ddc7f7474c1618f6107eb2b0d460c76a011f11f3a830478eb3076",
+    "pages": [
+      {
+        "file": "certificates/ai-builder-hackathon.webp",
+        "sha256": "bc578d4f3d997f0f6f11aae4bb979b02896a1e05deb792fae21b8fd770eed36f",
+        "width": 1697,
+        "height": 2400
+      }
+    ]
+  },
+  "cursor-hackathon": {
+    "file": "certificates/cursor-hackathon.pdf",
+    "sha256": "c10f99296b8124fd92e0912ffb77ad070cb0b2f2ce3d5f359a70d5fc372a79bd",
+    "pages": [
+      {
+        "file": "certificates/cursor-hackathon.webp",
+        "sha256": "4a3813a054afd60c2af9761113ef8b972ddcc1cda483a378c53e65984dd0cf44",
+        "width": 1280,
+        "height": 904
+      }
+    ]
+  },
+  "udacity-ai-fundamentals": {
+    "file": "certificates/udacity-ai-fundamentals.pdf",
+    "sha256": "0e2447b08b92143bbd0eb079880b239539c53bec37a8e0ab56485bf45d0c3f39",
+    "pages": [
+      {
+        "file": "certificates/udacity-ai-fundamentals.webp",
+        "sha256": "d2b3a5135932a4b009ebed520e1ebf38cd67825871b3a68890525c909b5978af",
+        "width": 2400,
+        "height": 1855
+      }
+    ]
+  },
+  "udacity-programming": {
+    "file": "certificates/udacity-programming.pdf",
+    "sha256": "4e7dbffec43b7d2a07f3633c8b715ca1acbe57b2f4eb06693deff1658d2a0d18",
+    "pages": [
+      {
+        "file": "certificates/udacity-programming.webp",
+        "sha256": "a8dcb0db5aae897494e4619a91046fd00e30bf6ebb50c2342657140a05ce29b2",
+        "width": 2400,
+        "height": 1699
+      }
+    ]
+  },
+  "udacity-android": {
+    "file": "certificates/udacity-android.pdf",
+    "sha256": "2693e640ea459f57e70f6c551d148656860282b33c698aa06da60d226782a083",
+    "pages": [
+      {
+        "file": "certificates/udacity-android.webp",
+        "sha256": "7883bef007a12027457a035f23eb75c0b051bf8947f3e70511adbcdf2182b740",
+        "width": 2400,
+        "height": 1855
+      }
+    ]
+  },
+  "udacity-data-analysis": {
+    "file": "certificates/udacity-data-analysis.pdf",
+    "sha256": "16fb61bae95ae432bb4b0d4e59af1c64813db74beb48d1578de46cb7f980d0a5",
+    "pages": [
+      {
+        "file": "certificates/udacity-data-analysis.webp",
+        "sha256": "d5ddedb69d97060fef8470e4ad4eade4d5bce67a731c9e4e5f99b527fd5fba07",
+        "width": 2400,
+        "height": 1855
+      }
+    ]
+  }
+}

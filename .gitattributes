@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Reviewed certificate assets must retain their exact bytes on every platform.
+public/certificates/*.pdf binary
+public/certificates/*.webp binary

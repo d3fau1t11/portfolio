@@ -7,7 +7,7 @@ export interface Project {
   solution: string
   technologies: string[]
   repository: string
-  repositoryVisibility?: 'private'
+  repositoryVisibility?: 'public' | 'private'
   demo?: string
   focus: string[]
 }
@@ -53,12 +53,12 @@ export const projects: Project[] = [
     label: 'Website project',
     category: 'WEB / AGRICULTURE',
     problem: 'Help growers discover fruit seedlings and reach the nursery online.',
-    solution: 'A web storefront presenting fruit-seedling categories, product listings and contact-based ordering for Green Africa General Trading PLC.',
-    technologies: ['Next.js'],
+    solution: 'A Next.js storefront for Green Africa General Trading PLC with searchable fruit-seedling listings, category filters and a browser-persisted shopping cart. Checkout prepares an order message for WhatsApp.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'localStorage'],
     repository: 'https://github.com/d3fau1t11/Green-Africa-Farms',
-    repositoryVisibility: 'private',
+    repositoryVisibility: 'public',
     demo: 'https://green-farms.netlify.app/',
-    focus: ['Product catalogue', 'Category browsing', 'Ordering links'],
+    focus: ['Searchable product catalogue', 'Category filters', 'Persistent shopping cart', 'WhatsApp checkout'],
   },
   {
     slug: 'trueimpact',

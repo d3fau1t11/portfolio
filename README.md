@@ -2,7 +2,7 @@
 
 A personal portfolio presenting **Software Developer | Cybersecurity Practitioner**, built with React, TypeScript, Vite, Tailwind CSS, Motion for React and Lucide React.
 
-Portfolio URL: **https://d3fau1t11.github.io/portfolio/**. The repository includes **11 projects**, **six supplied live-site links**, **four featured Professional Development credentials** and **30 Tibeb / QIYAS CTF write-ups from October 2026**. The profile picture has been removed. GitHub Actions validates and publishes the site from **main**.
+Portfolio URL: **https://d3fau1t11.github.io/portfolio/**. The repository includes **11 projects**, **six supplied live-site links**, **21 viewable certificates**, **four featured Professional Development credentials** and **30 Tibeb / QIYAS CTF write-ups from October 2026**. GitHub Actions validates and publishes the site from **main**.
 
 ## Run locally
 
@@ -78,7 +78,7 @@ This browser is a development validation prerequisite. The published website is 
 │   ├── lib/                       Filtering, article loading, anchors and base-path links
 │   ├── pages/                     Home, collections and article reader
 │   └── styles.css                 Tailwind foundation and custom design
-├── public/                        Original site artwork, crawler files and font license
+├── public/                        Site artwork, reviewed certificate copies and crawler files
 ├── scripts/                       Prerendering and output validation
 ├── tests/unit/                    Data and search tests
 ├── tests/e2e/                     Browser and accessibility tests
@@ -86,7 +86,7 @@ This browser is a development validation prerequisite. The published website is 
 └── docs/                          Milestone, CTF and project update reports
 ~~~
 
-The home page includes the introduction, an original build/test/security graphic, current education, 11 project cards, cybersecurity study and competition experience, three selected CTF articles, four selected credentials and contact links. **4th Cyber Talent Summer Camp Program** leads Professional Development, followed by the existing ISO Lead Auditor, FortiGate Operator and OPSWAT ICIP awards. Credentials provide search, category and featured filters, result announcements and native award details. Write-ups provide search by challenge or technique, six category filters, complete article pages, contents links, readable code/table regions and related articles.
+The home page includes the introduction, an original build/test/security graphic, current education, 11 project cards, cybersecurity study and competition experience, three selected CTF articles, four selected credentials and contact links. **4th Cyber Talent Summer Camp Program** leads Professional Development, followed by the existing ISO Lead Auditor, FortiGate Operator and OPSWAT ICIP awards. Credentials provide search, category and featured filters, result announcements, native award details and **View certificate** links. Each opens a keyboard-accessible preview with zoom, direct PDF viewing and PDF download. Images load when the viewer opens; direct document links work without JavaScript. Write-ups provide search by challenge or technique, six category filters, complete article pages, contents links, readable code/table regions and related articles.
 
 There is no client-side router. The build produces **33 actual HTML files**: home, credentials, the write-up library and 30 articles. Direct navigation, refreshes and GitHub Pages links work without routing fallbacks. Complete initial content, including every article, is available without JavaScript. Native mobile navigation, contents disclosures and award details continue to work; collections show every record and hide unavailable search controls.
 
@@ -101,6 +101,7 @@ Edit the public metadata in:
 - **src/data/profile.ts** — name, email, GitHub profile and introductory copy.
 - **src/data/projects.ts** — Attendance App, WatchVault and GPA Calculator first, followed by Green Africa Farms, TrueImpact, Remote Admin Tool, BookReview, Python Reverse TCP, Forge, Social Media Link Hub and Hary Pictures. Optional live-site and private-source metadata control the separate project links.
 - **src/data/credentials.ts** — exact award titles, issuers, types, dates, expiration and topic metadata.
+- **src/data/certificate-assets.json** — reviewed certificate PDF/preview paths, dimensions and file hashes. Update it only after reviewing a replacement display copy.
 - **src/pages/HomePage.tsx** — current education and authorized competition statements.
 - **src/data/writeups.ts** — challenge titles, summaries, topics, categories and supplied points/difficulty.
 - **src/content/writeups/*.md** — article bodies, code examples, recorded outputs and flags.
@@ -115,13 +116,15 @@ Credential types distinguish competency awards, course and training completions,
 
 The national University CTF result is presented as **5th place, solo competitor** under the owner's explicit instruction. HTB placement and scores remain team results. The conflicting CyberShield rank is omitted. Project descriptions use reviewed public source or live-site evidence and make no claims about adoption, measured users, independently validated security or sole authorship. TrueImpact is a team hackathon prototype; BookReview is an academic project in progress; Remote Admin Tool, Python Reverse TCP and Forge are presented as lab research or development work.
 
-The six owner-supplied live sites belong to WatchVault, Green Africa Farms, TrueImpact, BookReview, Social Media Link Hub and Hary Pictures. Green Africa Farms has a public storefront and a private repository; its source button states **Private repository**. Its description comes from the public storefront, without inspecting private source. The summer camp keeps its source-backed **Program participation** type and **October 2025 (G.C.)** date.
+The six owner-supplied live sites belong to WatchVault, Green Africa Farms, TrueImpact, BookReview, Social Media Link Hub and Hary Pictures. Green Africa Farms now has a **public repository**. Its reviewed source confirms Next.js, React, TypeScript and Tailwind CSS, catalogue search/category filters, a cart persisted in localStorage and WhatsApp checkout. The summer camp keeps its source-backed **Program participation** type and **October 2025 (G.C.)** date.
 
 ## Protect original documents
 
-The existing **Cers/** directory and **CERTIFICATES.md** are private source material, preserved locally and excluded by **.gitignore**. They are not imported by the app or copied to the build. Public data contains no certificate IDs, recipient aliases, verification tokens, original filenames or private paths.
+The existing **Cers/** directory and **CERTIFICATES.md** are private source material, preserved locally and excluded by **.gitignore**. They are not imported by the app or copied to the build. Credential metadata contains no certificate IDs, recipient aliases, verification tokens, original filenames or private paths.
 
-The output verifier rejects original document formats, private-path patterns, excluded claims and artwork outside its explicit approved list. It checks picture removal, the authorized 11-project showcase, the six supplied live-site links and the four featured credentials. Historical challenge URL identifiers are allowed only under **challenges.tibeb.org**; certificate identifiers remain blocked. ForgeNext and private internal information remain excluded.
+The owner's certificate-viewing request authorizes the **21 reviewed display copies** in **public/certificates/**. Each has a WebP preview and a PDF built from the reviewed pixels, retaining the award wording, recipient name, dates and issuer information. Certificate IDs, personal verification links and QR verification codes are removed from the copies. Sideways scans are corrected, and blank printer-overflow pages are omitted. Hidden source metadata and original PDF annotations are not carried into the display PDFs.
+
+The output verifier allows exactly the **42 reviewed certificate assets**, checks their file signatures and SHA-256 hashes, and rejects unreviewed documents, private-path patterns, excluded claims and artwork outside its approved list. It checks certificate viewing links, picture removal, the 11-project showcase, the six supplied live-site links and the four featured credentials. Historical challenge URL identifiers are allowed only under **challenges.tibeb.org**; certificate identifiers remain blocked. ForgeNext and private internal information remain excluded.
 
 The included media consists of portfolio branding, original diagrams and the licensed GitHub mark. The generated portrait is preserved in ignored local artifacts and is absent from the application and production build. Certificate scans and project screenshots need their own publication review before adding them. The six supplied live-site links are authorized by the owner's project update. The verifier supplements review; it is not a comprehensive personal-data scanner.
 
@@ -150,6 +153,6 @@ The self-hosted Manrope font is licensed under the **SIL Open Font License**, in
 
 The official GitHub mark comes from [Primer Octicons](https://github.com/primer/octicons/blob/main/icons/mark-github-16.svg), with its MIT license at **public/licenses/GitHub-Octicons-MIT.txt**. Profile and project repository links use this mark. The user's original image is preserved locally.
 
-Validation reports: **docs/MILESTONE_1_REPORT.md** records the original MVP; **docs/CTF_AND_PORTRAIT_UPDATE.md** records the CTF library and former portrait addition; **docs/PROJECTS_AND_DEVELOPMENT_UPDATE.md** records the current project and Professional Development update.
+Validation reports: **docs/MILESTONE_1_REPORT.md** records the original MVP; **docs/CTF_AND_PORTRAIT_UPDATE.md** records the CTF library and former portrait addition; **docs/PROJECTS_AND_DEVELOPMENT_UPDATE.md** records the project and Professional Development update; **docs/CERTIFICATE_VIEWING_UPDATE.md** records certificate viewing and the public Green Africa Farms review.
 
 Recommended follow-up: develop concise project case studies with confirmed roles, repeatable project validation, grading/security assumptions and approved screenshots; then perform additional browser and assistive-technology review before public release.
