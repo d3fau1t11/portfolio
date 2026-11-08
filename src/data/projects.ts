@@ -1,0 +1,145 @@
+export interface Project {
+  slug: string
+  name: string
+  label: string
+  category: string
+  problem: string
+  solution: string
+  technologies: string[]
+  repository: string
+  repositoryVisibility?: 'private'
+  demo?: string
+  focus: string[]
+}
+
+export const projects: Project[] = [
+  {
+    slug: 'attendance-app',
+    name: 'Attendance App',
+    label: 'Featured project',
+    category: 'MOBILE / BACKEND',
+    problem: 'Bring mobile check-in and attendance administration into one coherent system.',
+    solution: 'An Android-first application with an Expo / React Native client, a React / Vite administration interface and a TypeScript / Express API. PostgreSQL, Drizzle ORM and Supabase support the data layer, with shared attendance rules across the project.',
+    technologies: ['React Native', 'Expo', 'TypeScript', 'Express', 'PostgreSQL', 'Drizzle', 'Supabase'],
+    repository: 'https://github.com/d3fau1t11/attendance-app',
+    focus: ['Authentication', 'Transactional attendance services', 'QR and geofence logic', 'Offline outbox handling'],
+  },
+  {
+    slug: 'watchvault',
+    name: 'WatchVault',
+    label: 'Personal project',
+    category: 'WEB / INTEGRATIONS',
+    problem: 'Keep a personal media watchlist organized and easy to update.',
+    solution: 'A React media-tracking application with Firebase Authentication, Firestore watchlist records and TMDb metadata integration.',
+    technologies: ['React', 'Firebase Authentication', 'Firestore', 'TMDb'],
+    repository: 'https://github.com/d3fau1t11/watchvault',
+    demo: 'https://watchvaults.netlify.app/',
+    focus: ['Personal watchlists', 'Account integration', 'Firestore CRUD'],
+  },
+  {
+    slug: 'gpa-calculator',
+    name: 'GPA Calculator',
+    label: 'Browser utility',
+    category: 'WEB / LOCAL DATA',
+    problem: 'Make weighted GPA and cumulative GPA calculations easier to manage.',
+    solution: 'A browser-based GPA / CGPA calculator with semester history, local data persistence and import / export functionality.',
+    technologies: ['JavaScript', 'HTML', 'CSS', 'localStorage'],
+    repository: 'https://github.com/d3fau1t11/Gpa-Calculator',
+    focus: ['Weighted calculations', 'Semester history', 'Local data management'],
+  },
+  {
+    slug: 'green-africa-farms',
+    name: 'Green Africa Farms',
+    label: 'Website project',
+    category: 'WEB / AGRICULTURE',
+    problem: 'Help growers discover fruit seedlings and reach the nursery online.',
+    solution: 'A web storefront presenting fruit-seedling categories, product listings and contact-based ordering for Green Africa General Trading PLC.',
+    technologies: ['Next.js'],
+    repository: 'https://github.com/d3fau1t11/Green-Africa-Farms',
+    repositoryVisibility: 'private',
+    demo: 'https://green-farms.netlify.app/',
+    focus: ['Product catalogue', 'Category browsing', 'Ordering links'],
+  },
+  {
+    slug: 'trueimpact',
+    name: 'TrueImpact',
+    label: 'Team hackathon prototype',
+    category: 'WEB / AI',
+    problem: 'Give local founders a way to share the human story behind impact records.',
+    solution: 'A team hackathon prototype for founder voice stories, multilingual narratives and story visibility choices. The Next.js and Supabase workflow connects voice uploads, story review and speech / narration integrations.',
+    technologies: ['Next.js', 'TypeScript', 'Supabase'],
+    repository: 'https://github.com/d3fau1t11/TrueImpact',
+    demo: 'https://trueimpact1.netlify.app/',
+    focus: ['Voice-first stories', 'Multilingual processing', 'Consent choices'],
+  },
+  {
+    slug: 'remote-admin-tool',
+    name: 'Remote Admin Tool',
+    label: 'Research proof of concept',
+    category: 'SECURITY / NETWORKING',
+    problem: 'Study client/server communication and remote administration in a controlled lab.',
+    solution: 'GhostShell, a research proof of concept exploring Python and C++ clients, TCP / HTTP transport and message framing for lab-based remote administration.',
+    technologies: ['Python', 'C++', 'TCP', 'HTTP'],
+    repository: 'https://github.com/d3fau1t11/Remote-Admin-Tool',
+    focus: ['Client/server communication', 'Transport protocols', 'Message framing'],
+  },
+  {
+    slug: 'bookreview',
+    name: 'BookReview',
+    label: 'Academic / in progress',
+    category: 'WEB / EDUCATION',
+    problem: 'Make book discovery and reviews approachable through a simple reading interface.',
+    solution: 'An Internet Programming class project with featured books and static review pages, built with HTML, CSS and JavaScript. User-submitted reviews remain planned work.',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    repository: 'https://github.com/d3fau1t11/IP-final-project-',
+    demo: 'https://ip-final-project.vercel.app/',
+    focus: ['Featured books', 'Static reviews', 'Front-end fundamentals'],
+  },
+  {
+    slug: 'python-reverse-tcp',
+    name: 'Python Reverse TCP',
+    label: 'Learning / in progress',
+    category: 'SECURITY / NETWORKING',
+    problem: 'Understand how TCP clients exchange messages and manage concurrent sessions.',
+    solution: 'An educational Python client/server project exploring multi-client socket connections, message framing and command exchange in a controlled lab.',
+    technologies: ['Python', 'Sockets', 'Threading', 'PyCryptodome'],
+    repository: 'https://github.com/d3fau1t11/Python-Reverse-TCP',
+    focus: ['TCP sockets', 'Concurrent sessions', 'Client/server fundamentals'],
+  },
+  {
+    slug: 'forge',
+    name: 'Forge',
+    label: 'Research / in development',
+    category: 'SECURITY / CTF WORKSPACE',
+    problem: 'Keep challenge records, evidence and investigation activity in one local workspace.',
+    solution: 'A local CTF workspace under development, bringing challenge records, evidence organization and live run updates into a React dashboard backed by FastAPI, SQLite and WebSockets.',
+    technologies: ['Python', 'FastAPI', 'React', 'TypeScript', 'SQLite', 'WebSockets'],
+    repository: 'https://github.com/d3fau1t11/Forge',
+    focus: ['Challenge organization', 'Evidence records', 'Live activity updates'],
+  },
+  {
+    slug: 'social-media-link-hub',
+    name: 'Social Media Link Hub',
+    label: 'Website project',
+    category: 'WEB / COMMUNITY',
+    problem: 'Bring an institute’s social pages and contact options into one easy-to-share destination.',
+    solution: 'A bilingual Amharic / English link hub for Mezmure Dawit Spiritual Chant Training Institute, with social links, contact actions and QR sharing.',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    repository: 'https://github.com/d3fau1t11/-Social-Media-Link-Hub',
+    demo: 'https://mezmuredawit.netlify.app/',
+    focus: ['Bilingual interface', 'Social links', 'QR sharing'],
+  },
+  {
+    slug: 'hary-pictures',
+    name: 'Hary Pictures',
+    label: 'Photography portfolio',
+    category: 'WEB / PORTFOLIO',
+    problem: 'Present photography work and make services easy to explore.',
+    solution: 'A React and TypeScript portfolio with photography galleries, categorized work and service / contact pages for Hary Pictures.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    repository: 'https://github.com/d3fau1t11/Hary-Pictures',
+    demo: 'https://harypictures.netlify.app/',
+    focus: ['Photography galleries', 'Categorized work', 'Service and contact pages'],
+  },
+]
+
