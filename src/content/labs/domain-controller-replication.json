@@ -1,0 +1,80 @@
+{
+  "overview": "The Sites and Replication exercise extended the existing domain with DC02. The retained work demonstrates additional domain controller promotion and a replication summary in the same lab subnet.",
+  "environment": [
+    "DC01 and additional domain controller DC02",
+    "Same private /24 lab subnet",
+    "AD DS, DNS and Global Catalog",
+    "repadmin replication summary"
+  ],
+  "steps": [
+    {
+      "title": "Name the additional server",
+      "description": "I assigned DC02 its permanent lab name before promotion."
+    },
+    {
+      "title": "Configure static addressing and DNS discovery",
+      "description": "I set DC02’s static address and pointed preferred DNS to DC01 so it could locate the existing directory services.",
+      "evidence": [
+        "replica-network"
+      ]
+    },
+    {
+      "title": "Join the existing domain",
+      "description": "I joined DC02 to the domain and restarted it, then used an authorized domain administrative session for the remaining setup. Sign-in values are excluded."
+    },
+    {
+      "title": "Install AD DS and select replica promotion",
+      "description": "I installed the AD DS role and selected Add a domain controller to an existing domain rather than creating another forest.",
+      "evidence": [
+        "replica-promotion"
+      ]
+    },
+    {
+      "title": "Select DNS and Global Catalog capabilities",
+      "description": "I enabled DNS server and Global Catalog for DC02 and configured recovery access. The published options crop excludes recovery password fields.",
+      "evidence": [
+        "replica-options"
+      ]
+    },
+    {
+      "title": "Select the initial replication source",
+      "description": "I chose Any domain controller as the initial replication source in the additional options.",
+      "evidence": [
+        "replica-source"
+      ]
+    },
+    {
+      "title": "Review prerequisites and promote",
+      "description": "I reviewed the passing checks, started promotion and allowed the required restart and initial replication.",
+      "evidence": [
+        "replica-prerequisites"
+      ]
+    },
+    {
+      "title": "Inspect the replication summary",
+      "description": "I ran repadmin /replsummary. The captured summary lists DC01 as a source and DC02 as a destination with 0 of 5 failures in each listed role.",
+      "evidence": [
+        "replica-summary"
+      ],
+      "commands": "repadmin /replsummary"
+    }
+  ],
+  "checks": [
+    {
+      "title": "Additional domain controller setup",
+      "description": "The captures show existing-domain promotion, DNS and Global Catalog selection and passing prerequisites.",
+      "basis": "captured"
+    },
+    {
+      "title": "Observed replication pair",
+      "description": "The summary shows zero failures for the displayed DC01 source and DC02 destination entries.",
+      "basis": "captured"
+    }
+  ],
+  "lessons": [
+    "An additional domain controller joins the existing directory rather than creating another forest.",
+    "Correct DNS discovery is a prerequisite for joining and promotion.",
+    "A replication summary checks a point-in-time relationship; it does not establish failover behavior or every replication direction."
+  ],
+  "scope": "The retained evidence covers one subnet and the displayed replication pair. It does not demonstrate a geographic site design, a cross-site schedule or a controlled domain-controller outage test."
+}

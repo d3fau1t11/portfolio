@@ -1,0 +1,63 @@
+{
+  "overview": "The task used two existing lab servers to explore a shared web-service address. I labeled the IIS content on each node so captures of the cluster URL could identify which server responded.",
+  "environment": [
+    "Lab servers DC01 and DC02",
+    "Windows IIS and NLB",
+    "Shared private cluster address",
+    "Distinct Node A and Node B web-page labels"
+  ],
+  "steps": [
+    {
+      "title": "Prepare the web roles and NLB features",
+      "description": "I reused the existing lab VMs to conserve resources. The notes record IIS already present on DC01 and IIS plus NLB installation on DC02."
+    },
+    {
+      "title": "Give the node pages distinct labels",
+      "description": "I changed the IIS page artwork to identify NLB NODE A and NLB NODE B, providing a visible indication of the responding host."
+    },
+    {
+      "title": "Configure the shared cluster address",
+      "description": "I configured the NLB virtual address, node identities and priorities using the lab’s unicast configuration."
+    },
+    {
+      "title": "Check cluster convergence",
+      "description": "I inspected Network Load Balancing Manager. The captured list shows both nodes Converged with distinct dedicated addresses and priorities.",
+      "evidence": [
+        "nlb-converged"
+      ]
+    },
+    {
+      "title": "Capture the shared URL responding from Node A",
+      "description": "I opened the cluster address and recorded the IIS page labeled NLB NODE A.",
+      "evidence": [
+        "nlb-node-a"
+      ]
+    },
+    {
+      "title": "Capture the shared URL responding from Node B",
+      "description": "I also retained the same cluster address displaying NLB NODE B, showing that the other node could serve that address.",
+      "evidence": [
+        "nlb-node-b"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "title": "Cluster convergence",
+      "description": "Both nodes are shown as Converged in the cluster management view.",
+      "basis": "captured"
+    },
+    {
+      "title": "Responses from both node identities",
+      "description": "The cluster URL is captured displaying each node’s distinct IIS label.",
+      "basis": "captured"
+    }
+  ],
+  "lessons": [
+    "A shared virtual address and a node’s dedicated address serve different purposes.",
+    "Visible node labels help identify the host serving a request.",
+    "Two node responses do not quantify balanced traffic, recovery time or an outage test.",
+    "NLB handles traffic distribution differently from stateful failover clustering and shared-storage recovery."
+  ],
+  "scope": "The evidence shows convergence and responses from two node identities. It does not document a controlled failure, recovery-time measurement, application health check or evenly distributed load. Reusing domain-controller VMs was a resource-constrained lab choice."
+}

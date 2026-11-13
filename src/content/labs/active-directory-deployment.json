@@ -1,0 +1,85 @@
+{
+  "overview": "This was the starting point for the Windows Server lab environment. I used a resource-constrained VMware VM to build a domain controller that later exercises could use for directory services and name resolution.",
+  "environment": [
+    "Windows Server 2022 Datacenter Evaluation",
+    "VMware Workstation",
+    "DC01: domain controller and DNS",
+    "Isolated private /24 lab network"
+  ],
+  "steps": [
+    {
+      "title": "Provision the server VM",
+      "description": "I created the VM using a manual installation workflow so I could choose the guest edition and hardware settings. The initial lab used two vCPUs, 2 GB RAM and a 20 GB virtual disk."
+    },
+    {
+      "title": "Install Windows Server and inspect the baseline",
+      "description": "I installed the Desktop Experience edition and reviewed Server Manager while the machine was still in a workgroup.",
+      "evidence": [
+        "ad-baseline"
+      ]
+    },
+    {
+      "title": "Rename the server",
+      "description": "I changed the generated computer name to DC01 before promotion so later configuration and management tools would identify its role clearly.",
+      "evidence": [
+        "ad-rename"
+      ]
+    },
+    {
+      "title": "Install VMware Tools and restart",
+      "description": "I installed the guest integration tools and combined the required restart with the pending computer-name change."
+    },
+    {
+      "title": "Install the AD DS role",
+      "description": "I selected Active Directory Domain Services in Add Roles and Features, together with the associated directory and Group Policy management tools.",
+      "evidence": [
+        "ad-role"
+      ]
+    },
+    {
+      "title": "Configure a new forest",
+      "description": "I launched the promotion wizard and selected Add a new forest for the isolated lab namespace. I configured the domain controller options and recovery access without publishing the credential values."
+    },
+    {
+      "title": "Review prerequisites and promote DC01",
+      "description": "I checked the prerequisite results, reviewed the DNS delegation warning in the context of the isolated namespace, and proceeded with promotion and its restart.",
+      "evidence": [
+        "ad-prerequisites"
+      ]
+    },
+    {
+      "title": "Set static IPv4 and DNS",
+      "description": "As recorded in my notes, I then set the server’s static private address and pointed preferred DNS at its own DNS service. Preparing static addressing before promotion is the preferable sequence for a repeat deployment.",
+      "evidence": [
+        "ad-network"
+      ]
+    },
+    {
+      "title": "Inspect the directory and DNS result",
+      "description": "I reviewed the directory services, SYSVOL and DNS records described in the report to confirm that the standalone server had become the lab domain controller."
+    }
+  ],
+  "checks": [
+    {
+      "title": "Role and promotion prerequisites",
+      "description": "The screenshots show the AD DS role selection and passing promotion prerequisite checks.",
+      "basis": "captured"
+    },
+    {
+      "title": "Static network settings",
+      "description": "The IPv4 properties screenshot shows static addressing and a self-referencing DNS setting.",
+      "basis": "captured"
+    },
+    {
+      "title": "Directory initialization",
+      "description": "The notes describe reviewing the directory database, SYSVOL and DNS service records after promotion.",
+      "basis": "documented"
+    }
+  ],
+  "lessons": [
+    "Installing the AD DS role and promoting a domain controller are separate operations.",
+    "DNS is a dependency for directory discovery and domain authentication.",
+    "A small VM can support a learning exercise, but its resource allocation is not a production sizing recommendation."
+  ],
+  "scope": "The 20 GB disk was a constrained training allocation, below Microsoft’s published 32 GB installation baseline. I do not present it as a supported capacity recommendation or a fully hardened directory deployment."
+}

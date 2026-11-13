@@ -2,6 +2,23 @@
 Cers/
 CERTIFICATES.md
 
+# Original lab reports, activity files, archives and virtual-machine media.
+*.docx
+*.doc
+*.pdf
+!public/certificates/*.pdf
+*.pkt
+*.pka
+*.zip
+*.bin
+*.xlsx
+*.xls
+*.vmdk
+*.vmx
+*.iso
+*.ova
+*.ovf
+
 # Local dependencies, output and validation artifacts.
 node_modules/
 dist/

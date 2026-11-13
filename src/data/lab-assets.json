@@ -1,0 +1,554 @@
+{
+  "ad-baseline": {
+    "file": "labs/screenshots/ad-baseline.webp",
+    "width": 1362,
+    "height": 499,
+    "sha256": "97a9b2720aaec5831f9ea108da43bcb7a52257b9ac34dad12375ac6aba987b7d",
+    "alt": "Server Manager records the initial workgroup server and its constrained lab resources.",
+    "caption": "Server Manager records the initial workgroup server and its constrained lab resources."
+  },
+  "ad-rename": {
+    "file": "labs/screenshots/ad-rename.webp",
+    "width": 896,
+    "height": 487,
+    "sha256": "d65b057b91bb5c0c419e9899b2c2cf06f3c3323320b208e46ae1e09b0c0e2675",
+    "alt": "The computer name is changed to DC01 before domain controller promotion.",
+    "caption": "The computer name is changed to DC01 before domain controller promotion."
+  },
+  "ad-role": {
+    "file": "labs/screenshots/ad-role.webp",
+    "width": 1016,
+    "height": 667,
+    "sha256": "519fd9ef6a9b2c0493329b0ece7e57f98fbdc5c02cdfaeba16ee1e1d04ec6595",
+    "alt": "The AD DS role and its management tools are selected in Server Manager.",
+    "caption": "The AD DS role and its management tools are selected in Server Manager."
+  },
+  "ad-prerequisites": {
+    "file": "labs/screenshots/ad-prerequisites.webp",
+    "width": 939,
+    "height": 707,
+    "sha256": "1834c054da7c1345a1d9016168cd03889b035ae0b3f9fd61c7f0e990a8787a76",
+    "alt": "The domain controller promotion prerequisite checks pass in the isolated lab.",
+    "caption": "The domain controller promotion prerequisite checks pass in the isolated lab."
+  },
+  "ad-network": {
+    "file": "labs/screenshots/ad-network.webp",
+    "width": 517,
+    "height": 519,
+    "sha256": "a75dbac12cfc79b2e105f3e603ae4c6b11111d6ed6086ff09329448ce9d944ab",
+    "alt": "DC01 uses a static private address and its own DNS service.",
+    "caption": "DC01 uses a static private address and its own DNS service."
+  },
+  "dhcp-authorization": {
+    "file": "labs/screenshots/dhcp-authorization.webp",
+    "width": 1083,
+    "height": 726,
+    "sha256": "1208639dbd497a9406fd9fc406301dfda0d34b52a003c76ab3c1817e04af7411",
+    "alt": "DHCP post-installation tasks show security group creation and server authorization as Done.",
+    "caption": "DHCP post-installation tasks show security group creation and server authorization as Done."
+  },
+  "dhcp-scope": {
+    "file": "labs/screenshots/dhcp-scope.webp",
+    "width": 806,
+    "height": 550,
+    "sha256": "e661c65f6b516d64095264343a4ea63a50fb090052840c2cbc2e9023ea8c64f7",
+    "alt": "The IPv4 DHCP scope covers the lab /24 subnet.",
+    "caption": "The IPv4 DHCP scope covers the lab /24 subnet."
+  },
+  "dhcp-exclusions": {
+    "file": "labs/screenshots/dhcp-exclusions.webp",
+    "width": 800,
+    "height": 562,
+    "sha256": "f3ab9ddfdff8542128f309aaf9a97526066a8ebd1cf413411feb0a6cf66e4eed",
+    "alt": "The first ten addresses are excluded from the DHCP allocation pool.",
+    "caption": "The first ten addresses are excluded from the DHCP allocation pool."
+  },
+  "dhcp-lease": {
+    "file": "labs/screenshots/dhcp-lease.webp",
+    "width": 800,
+    "height": 583,
+    "sha256": "972ca7dfb914b67ee799169cdee030b6b09bcc017273a1a1e82ed6b83f109f1a",
+    "alt": "The lab DHCP lease duration is set to one hour.",
+    "caption": "The lab DHCP lease duration is set to one hour."
+  },
+  "dhcp-pool": {
+    "file": "labs/screenshots/dhcp-pool.webp",
+    "width": 1600,
+    "height": 631,
+    "sha256": "74de01f29c94f00b859a4fc95c7a853dcd749ba3385290861b715a9aab732162",
+    "alt": "The DHCP console lists the active distribution range and exclusion range.",
+    "caption": "The DHCP console lists the active distribution range and exclusion range."
+  },
+  "wds-image": {
+    "file": "labs/screenshots/wds-image.webp",
+    "width": 844,
+    "height": 655,
+    "sha256": "a0fa621ad2d7c362bb62068aedab530d1348989f5a38d8a2f6cd4f06c64756eb",
+    "alt": "The WDS Add Image wizard points to the install.wim image on installation media.",
+    "caption": "The WDS Add Image wizard points to the install.wim image on installation media."
+  },
+  "wds-pxe": {
+    "file": "labs/screenshots/wds-pxe.webp",
+    "width": 505,
+    "height": 64,
+    "sha256": "f7db7d5a3ae020fb69bfbd17587a9b4f8e2c5f43b2feeffdd702038e9ce0830e",
+    "alt": "The PXE client receives a DHCP address and downloads WDSNBP from the deployment server.",
+    "caption": "The PXE client receives a DHCP address and downloads WDSNBP from the deployment server."
+  },
+  "wds-desktop": {
+    "file": "labs/screenshots/wds-desktop.webp",
+    "width": 1027,
+    "height": 733,
+    "sha256": "3295af4afec64d6c4e2281e6917eeafac60365f791635738d6410b84840fec34",
+    "alt": "The deployed Windows 10 client reaches its desktop.",
+    "caption": "The deployed Windows 10 client reaches its desktop."
+  },
+  "ad-accounts": {
+    "file": "labs/screenshots/ad-accounts.webp",
+    "width": 1188,
+    "height": 637,
+    "sha256": "e0aa5647ea8ab9451a319ce9a83816f1904ad30f00a67b103af87de7b35d375a",
+    "alt": "AD Users and Computers lists the morning and evening lab student accounts.",
+    "caption": "AD Users and Computers lists the morning and evening lab student accounts."
+  },
+  "ad-groups": {
+    "file": "labs/screenshots/ad-groups.webp",
+    "width": 1242,
+    "height": 626,
+    "sha256": "d8d6b57356b83d21b40047ef62e92ff8be40b49aab81167537d368b7c81e319c",
+    "alt": "Morning and evening group membership is configured separately.",
+    "caption": "Morning and evening group membership is configured separately."
+  },
+  "ad-logon-hours": {
+    "file": "labs/screenshots/ad-logon-hours.webp",
+    "width": 632,
+    "height": 400,
+    "sha256": "6403c9facd2d9c1cc9dce3f7fac2eff839b521262b55d4c490c1bf94781f3116",
+    "alt": "A permitted logon window is selected for the morning student account.",
+    "caption": "A permitted logon window is selected for the morning student account."
+  },
+  "ad-time-denied": {
+    "file": "labs/screenshots/ad-time-denied.webp",
+    "width": 825,
+    "height": 323,
+    "sha256": "1157be9c45da466af918ad8c4076da46bda271cc22784951d2838323a4a68d9d",
+    "alt": "Windows rejects a logon attempt outside the permitted time window.",
+    "caption": "Windows rejects a logon attempt outside the permitted time window."
+  },
+  "ad-workstation": {
+    "file": "labs/screenshots/ad-workstation.webp",
+    "width": 474,
+    "height": 540,
+    "sha256": "0c14d892432cfedae18d0bb7b19c2e6fea7713d2bc039d1d6a4206dc4b30c87b",
+    "alt": "The account is restricted to the approved workstation PC01.",
+    "caption": "The account is restricted to the approved workstation PC01."
+  },
+  "ad-workstation-denied": {
+    "file": "labs/screenshots/ad-workstation-denied.webp",
+    "width": 806,
+    "height": 307,
+    "sha256": "4f7b9bbdac090cc563e1c6d8b46505ff72b4c1ce38b08490043bb69b07a7b8b1",
+    "alt": "Windows rejects a logon from an unapproved workstation.",
+    "caption": "Windows rejects a logon from an unapproved workstation."
+  },
+  "ad-expiration": {
+    "file": "labs/screenshots/ad-expiration.webp",
+    "width": 454,
+    "height": 93,
+    "sha256": "6c1bd3b332d7127f2d89ac9e39c5688dd2981284de18fb1250e6dcf2aeead1fe",
+    "alt": "An account expiration date is configured in the user account properties.",
+    "caption": "An account expiration date is configured in the user account properties."
+  },
+  "ad-expired-denied": {
+    "file": "labs/screenshots/ad-expired-denied.webp",
+    "width": 767,
+    "height": 323,
+    "sha256": "8dd34bf775507aec0484e9e21784867d8f38bde788aba2c46e1757c096b0cfa9",
+    "alt": "Windows rejects the expired lab account.",
+    "caption": "Windows rejects the expired lab account."
+  },
+  "ad-disable": {
+    "file": "labs/screenshots/ad-disable.webp",
+    "width": 899,
+    "height": 482,
+    "sha256": "7443daff833ed1ad2655eab1340400ae5f91b423a36b79420a465772dfb332c5",
+    "alt": "AD Users and Computers confirms that the selected student account is disabled.",
+    "caption": "AD Users and Computers confirms that the selected student account is disabled."
+  },
+  "share-layer": {
+    "file": "labs/screenshots/share-layer.webp",
+    "width": 1079,
+    "height": 638,
+    "sha256": "f92fb67d0791bff04707f023797384239b311c0914b0d93249384164c2103dd5",
+    "alt": "The Staff share uses a broad share permission while folder access is controlled through NTFS.",
+    "caption": "The Staff share uses a broad share permission while folder access is controlled through NTFS."
+  },
+  "ntfs-morning": {
+    "file": "labs/screenshots/ntfs-morning.webp",
+    "width": 1026,
+    "height": 579,
+    "sha256": "d9ca9c72fecf0afc1f5e5a5b5f46bb29ce5e909a0249d9d7da2193cb2ba73006",
+    "alt": "The Morning folder has explicit permissions for the morning and evening groups.",
+    "caption": "The Morning folder has explicit permissions for the morning and evening groups."
+  },
+  "ntfs-evening": {
+    "file": "labs/screenshots/ntfs-evening.webp",
+    "width": 951,
+    "height": 609,
+    "sha256": "81a6c5ec0289868ed167932e31bf5b39ed6cbdde1ec4c6e1906a42557f549705",
+    "alt": "The Evening folder has its own group permission entries.",
+    "caption": "The Evening folder has its own group permission entries."
+  },
+  "share-allowed": {
+    "file": "labs/screenshots/share-allowed.webp",
+    "width": 1074,
+    "height": 640,
+    "sha256": "badf5b981747cb13e67b44c78d0399a3a6ea8ebf97b20987bc8c90bb6db7940a",
+    "alt": "The morning account can browse the permitted Morning folder.",
+    "caption": "The morning account can browse the permitted Morning folder."
+  },
+  "share-denied": {
+    "file": "labs/screenshots/share-denied.webp",
+    "width": 1046,
+    "height": 570,
+    "sha256": "8006ec52516adbd6788842364fd982a7391b014f5788507f4062d2381550bcb2",
+    "alt": "Windows refuses access to the Evening folder from the morning account session.",
+    "caption": "Windows refuses access to the Evening folder from the morning account session."
+  },
+  "storage-disks": {
+    "file": "labs/screenshots/storage-disks.webp",
+    "width": 478,
+    "height": 286,
+    "sha256": "46ffd3f50ac8557a79459fd62d0e47ec60ec725d0540cac7c971a3104bf574d8",
+    "alt": "Seven small virtual disks are attached for the software RAID exercises.",
+    "caption": "Seven small virtual disks are attached for the software RAID exercises."
+  },
+  "storage-initialize": {
+    "file": "labs/screenshots/storage-initialize.webp",
+    "width": 500,
+    "height": 384,
+    "sha256": "50a3357ccb95ddf582ea356195b440035b07f3b59683de909cdb2bb36a3ecef8",
+    "alt": "The Disk Management initialization dialog has the GPT partition style selected.",
+    "caption": "The Disk Management initialization dialog has the GPT partition style selected."
+  },
+  "storage-stripe": {
+    "file": "labs/screenshots/storage-stripe.webp",
+    "width": 1600,
+    "height": 670,
+    "sha256": "6c555fc83e5c711d95d2787cee8f66a73c1b3430d0884934b7956d314c110001",
+    "alt": "The RAID 0 striped volume spans two dynamic disks and is shown as Healthy.",
+    "caption": "The RAID 0 striped volume spans two dynamic disks and is shown as Healthy."
+  },
+  "storage-mirror": {
+    "file": "labs/screenshots/storage-mirror.webp",
+    "width": 623,
+    "height": 511,
+    "sha256": "59e1b53f80eee959f36d83b9b58a8a653551713b3f53b9ae0eac827f39ed2607",
+    "alt": "The mirrored volume wizard combines two disks while retaining one disk of usable capacity.",
+    "caption": "The mirrored volume wizard combines two disks while retaining one disk of usable capacity."
+  },
+  "storage-final": {
+    "file": "labs/screenshots/storage-final.webp",
+    "width": 1600,
+    "height": 709,
+    "sha256": "59ce7b38440c485dd36b4239b6dcc35533cce60eeadcca089015500cf7a4fe64",
+    "alt": "Disk Management displays the mirrored and RAID 5 volumes across the remaining disks.",
+    "caption": "Disk Management displays the mirrored and RAID 5 volumes across the remaining disks."
+  },
+  "vpn-adapters": {
+    "file": "labs/screenshots/vpn-adapters.webp",
+    "width": 1081,
+    "height": 469,
+    "sha256": "39e3b6d3b0df4945cf216e9ffb25db3b5cd50f7f5b26b922e943aaf571ac0ebc",
+    "alt": "A second network adapter is attached to the server VM and set to NAT mode.",
+    "caption": "A second network adapter is attached to the server VM and set to NAT mode."
+  },
+  "vpn-roles": {
+    "file": "labs/screenshots/vpn-roles.webp",
+    "width": 997,
+    "height": 676,
+    "sha256": "93a92e79500da458e6e7dc3922b351700644611fa9993f36b3b2a59292c7378f",
+    "alt": "The Remote Access role includes VPN (RAS) and Routing services.",
+    "caption": "The Remote Access role includes VPN (RAS) and Routing services."
+  },
+  "vpn-custom": {
+    "file": "labs/screenshots/vpn-custom.webp",
+    "width": 901,
+    "height": 568,
+    "sha256": "477ebc6497c2c736a901b1bc35ab84277537802f544335a59a4a99333d27adf4",
+    "alt": "RRAS custom configuration enables VPN access and NAT.",
+    "caption": "RRAS custom configuration enables VPN access and NAT."
+  },
+  "vpn-names": {
+    "file": "labs/screenshots/vpn-names.webp",
+    "width": 1600,
+    "height": 654,
+    "sha256": "508c6703c97f0f867145a52cb588ad73d09089f7529826ca1c4fe9ac7e203308",
+    "alt": "The two lab interfaces are renamed Private and Public.",
+    "caption": "The two lab interfaces are renamed Private and Public."
+  },
+  "vpn-nat-public": {
+    "file": "labs/screenshots/vpn-nat-public.webp",
+    "width": 652,
+    "height": 613,
+    "sha256": "b87a017aade0fa702ebdfa558e42a507e1de5599a5fc6291444622604f9674f1",
+    "alt": "The Public interface is marked as the external interface with NAT enabled.",
+    "caption": "The Public interface is marked as the external interface with NAT enabled."
+  },
+  "vpn-nat-private": {
+    "file": "labs/screenshots/vpn-nat-private.webp",
+    "width": 690,
+    "height": 677,
+    "sha256": "9f66c22e29ac6c944017e451ea044fb7e7cd2a7f93a431e26c96dfbf673af9e2",
+    "alt": "The Private interface is marked as connected to the private network.",
+    "caption": "The Private interface is marked as connected to the private network."
+  },
+  "vpn-nat-table": {
+    "file": "labs/screenshots/vpn-nat-table.webp",
+    "width": 1600,
+    "height": 643,
+    "sha256": "94012473f5e0fce11610461151f34fcb915fdf43961fb65a820c251647677479",
+    "alt": "The RRAS NAT list contains both configured interfaces.",
+    "caption": "The RRAS NAT list contains both configured interfaces."
+  },
+  "vpn-policy": {
+    "file": "labs/screenshots/vpn-policy.webp",
+    "width": 988,
+    "height": 741,
+    "sha256": "c4056451a70b3c9c0db1b0e69ef009bbcecd5906cee520807946f31f541af440",
+    "alt": "The NPS policy grants access for matching VPN dial-up connection conditions.",
+    "caption": "The NPS policy grants access for matching VPN dial-up connection conditions."
+  },
+  "vpn-accounting": {
+    "file": "labs/screenshots/vpn-accounting.webp",
+    "width": 882,
+    "height": 647,
+    "sha256": "b48a1fa6cfb4e7b13277edbbd6d7e250f95aee9897bef4a4270da5f3e069213f",
+    "alt": "Inbox Accounting is selected for the lab Remote Access reporting service.",
+    "caption": "Inbox Accounting is selected for the lab Remote Access reporting service."
+  },
+  "vpn-connected": {
+    "file": "labs/screenshots/vpn-connected.webp",
+    "width": 824,
+    "height": 663,
+    "sha256": "4ffd0db68db5056cfb0e0c1f3243d8be77a3d57646158a92517ff11acfdb13e6",
+    "alt": "The Windows VPN profile displays Connected after the destination name is corrected.",
+    "caption": "The Windows VPN profile displays Connected after the destination name is corrected."
+  },
+  "vpn-session": {
+    "file": "labs/screenshots/vpn-session.webp",
+    "width": 975,
+    "height": 710,
+    "sha256": "16b31ba56201af3bee85e97c20f8c31dc79b7139f2b83ba35b391d33309b45a1",
+    "alt": "The server lists the active VPN connection with PPTP protocol and session statistics.",
+    "caption": "The server lists the active VPN connection with PPTP protocol and session statistics."
+  },
+  "replica-network": {
+    "file": "labs/screenshots/replica-network.webp",
+    "width": 464,
+    "height": 555,
+    "sha256": "6a270779a69a5f8cecf6bf3c26cb52354a82eadd745f0dab6129804bb6a202f3",
+    "alt": "DC02 receives a static address and uses DC01 as its preferred DNS server.",
+    "caption": "DC02 receives a static address and uses DC01 as its preferred DNS server."
+  },
+  "replica-promotion": {
+    "file": "labs/screenshots/replica-promotion.webp",
+    "width": 959,
+    "height": 674,
+    "sha256": "367f3a3c7e7de617f69c6c9fe93542a14e2edce73b1583f2d963d045500e3297",
+    "alt": "DC02 is added as a domain controller in the existing lab domain.",
+    "caption": "DC02 is added as a domain controller in the existing lab domain."
+  },
+  "replica-options": {
+    "file": "labs/screenshots/replica-options.webp",
+    "width": 946,
+    "height": 252,
+    "sha256": "d182f556f3cfbc0ee9724c853e04e6d1e368c64560690e9b684d588c94d180cd",
+    "alt": "DNS server and Global Catalog are selected for the additional domain controller.",
+    "caption": "DNS server and Global Catalog are selected for the additional domain controller."
+  },
+  "replica-source": {
+    "file": "labs/screenshots/replica-source.webp",
+    "width": 997,
+    "height": 716,
+    "sha256": "488337b4118fb493295e14c39af5599ae03bef930f623d1b72c7e2afa9aa1e86",
+    "alt": "The initial replication source is set to Any domain controller.",
+    "caption": "The initial replication source is set to Any domain controller."
+  },
+  "replica-prerequisites": {
+    "file": "labs/screenshots/replica-prerequisites.webp",
+    "width": 1007,
+    "height": 755,
+    "sha256": "a1ed90569e4548dfaa958462ebbf8fce132ad5ee4f2d975f3615c6c3bd534480",
+    "alt": "The additional domain controller promotion prerequisite checks pass.",
+    "caption": "The additional domain controller promotion prerequisite checks pass."
+  },
+  "replica-summary": {
+    "file": "labs/screenshots/replica-summary.webp",
+    "width": 827,
+    "height": 262,
+    "sha256": "4400d4755cca9fa06c683d63b5a51c66cd1cc6e6dcb317931bf3960ab98f0cc4",
+    "alt": "repadmin /replsummary lists DC01 as source and DC02 as destination, each with 0 of 5 failures.",
+    "caption": "repadmin /replsummary lists DC01 as source and DC02 as destination, each with 0 of 5 failures."
+  },
+  "trust-forest": {
+    "file": "labs/screenshots/trust-forest.webp",
+    "width": 1600,
+    "height": 712,
+    "sha256": "cf2ac4c6d0b75548e2f451bb35ecefa518aedef396b90ec4ec7dba26bcd63be5",
+    "alt": "DC03 is promoted into a separate lab forest.",
+    "caption": "DC03 is promoted into a separate lab forest."
+  },
+  "trust-forwarder-a": {
+    "file": "labs/screenshots/trust-forwarder-a.webp",
+    "width": 537,
+    "height": 630,
+    "sha256": "2e0d4d5d9a77a0ba3a396894d4cad64f0816e8754d0650fe34fbb0e2a862cca0",
+    "alt": "DC01 has a conditional DNS forwarder for the partner domain.",
+    "caption": "DC01 has a conditional DNS forwarder for the partner domain."
+  },
+  "trust-forwarder-b": {
+    "file": "labs/screenshots/trust-forwarder-b.webp",
+    "width": 499,
+    "height": 627,
+    "sha256": "5515ffb9d8eee553312c13f8831381f876ea2920f0527047d1d66362bcb675aa",
+    "alt": "DC03 has the reciprocal conditional DNS forwarder.",
+    "caption": "DC03 has the reciprocal conditional DNS forwarder."
+  },
+  "trust-type": {
+    "file": "labs/screenshots/trust-type.webp",
+    "width": 707,
+    "height": 482,
+    "sha256": "e8d42d17bcbe6c5a9c45073f24eab69bf6130bdd9dc28fea7c936f02eebb7a55",
+    "alt": "External trust is selected in the New Trust wizard.",
+    "caption": "External trust is selected in the New Trust wizard."
+  },
+  "trust-direction": {
+    "file": "labs/screenshots/trust-direction.webp",
+    "width": 710,
+    "height": 495,
+    "sha256": "f4a9eeed73bbc9f7c06ade4b861b86b6dc481e836f1a0ea333161441c2fa4e96",
+    "alt": "The trust direction is set to Two-way.",
+    "caption": "The trust direction is set to Two-way."
+  },
+  "trust-sides": {
+    "file": "labs/screenshots/trust-sides.webp",
+    "width": 710,
+    "height": 484,
+    "sha256": "31cf716f9efd5bf661469b129d67483414ecd98ca9b86bbe11685c6125654a5c",
+    "alt": "Both this domain and the specified domain are selected for trust creation.",
+    "caption": "Both this domain and the specified domain are selected for trust creation."
+  },
+  "trust-authentication": {
+    "file": "labs/screenshots/trust-authentication.webp",
+    "width": 710,
+    "height": 494,
+    "sha256": "5520291ed2f7c75a23b31d21698c86132d60fda1769e80a9dfdd65ef1482079d",
+    "alt": "Domain-wide authentication is selected for the training trust.",
+    "caption": "Domain-wide authentication is selected for the training trust."
+  },
+  "trust-confirm-a": {
+    "file": "labs/screenshots/trust-confirm-a.webp",
+    "width": 589,
+    "height": 648,
+    "sha256": "cc2f2f832e3066b38eb0e21935a6aa17eb38036c7aa6dc182e54517c1fafed99",
+    "alt": "The primary domain lists the partner as an external, non-transitive trust in both directions.",
+    "caption": "The primary domain lists the partner as an external, non-transitive trust in both directions."
+  },
+  "trust-confirm-b": {
+    "file": "labs/screenshots/trust-confirm-b.webp",
+    "width": 565,
+    "height": 640,
+    "sha256": "901f8b2046710bdadeddedaf20d24579740106b4947f7a1a8b3f6980dd9615b8",
+    "alt": "The partner domain lists the reciprocal external trust in both directions.",
+    "caption": "The partner domain lists the reciprocal external trust in both directions."
+  },
+  "trust-share": {
+    "file": "labs/screenshots/trust-share.webp",
+    "width": 1026,
+    "height": 619,
+    "sha256": "db378f4a48a631d278d6fd0d15047b2e3cf67f6c828388805c4f07e827bbf9f6",
+    "alt": "Advanced Sharing enables the dedicated cross-domain test share.",
+    "caption": "Advanced Sharing enables the dedicated cross-domain test share."
+  },
+  "trust-permissions": {
+    "file": "labs/screenshots/trust-permissions.webp",
+    "width": 1055,
+    "height": 557,
+    "sha256": "61eafc6133938e428cab240949511e366d8f341ced02ba8df1218bdf586234ae",
+    "alt": "The resolved partner-domain principal is granted permissions on the test share.",
+    "caption": "The resolved partner-domain principal is granted permissions on the test share."
+  },
+  "trust-remote-share": {
+    "file": "labs/screenshots/trust-remote-share.webp",
+    "width": 1266,
+    "height": 709,
+    "sha256": "2f0b0afab880b77b29808934c9744b00b3b4850c0f5eec299fa82a8bc7ee7eae",
+    "alt": "The partner-domain session can discover the shared resource on DC01.",
+    "caption": "The partner-domain session can discover the shared resource on DC01."
+  },
+  "nlb-converged": {
+    "file": "labs/screenshots/nlb-converged.webp",
+    "width": 1270,
+    "height": 402,
+    "sha256": "5fd28e4d05217d608d9ae5297f9e756181443d5d0039e7a0c0072fd3e747e4f8",
+    "alt": "The NLB virtual IP lists DC01 and DC02 with Converged status and distinct host priorities.",
+    "caption": "The NLB virtual IP lists DC01 and DC02 with Converged status and distinct host priorities."
+  },
+  "nlb-node-a": {
+    "file": "labs/screenshots/nlb-node-a.webp",
+    "width": 1600,
+    "height": 689,
+    "sha256": "a2c01ab4f3d6f0c564a4b264ba6d54c7419c1121f969e7923fd984e21220ea0d",
+    "alt": "A request to the shared cluster address displays the IIS page labeled NLB NODE A.",
+    "caption": "A request to the shared cluster address displays the IIS page labeled NLB NODE A."
+  },
+  "nlb-node-b": {
+    "file": "labs/screenshots/nlb-node-b.webp",
+    "width": 1600,
+    "height": 662,
+    "sha256": "aa9886e4be1402e7afe28ce0da2a162171c67282b4e7902f6422cda612cf09c6",
+    "alt": "The same cluster address is also captured displaying the IIS page labeled NLB NODE B.",
+    "caption": "The same cluster address is also captured displaying the IIS page labeled NLB NODE B."
+  },
+  "esxi-resources": {
+    "file": "labs/screenshots/esxi-resources.webp",
+    "width": 450,
+    "height": 285,
+    "sha256": "00d6136ba0329314f8b08d7de5c0aae49214373bb74c7edbb39ceb0563fcd8be",
+    "alt": "The captured ESXi VM baseline has 4 GB memory, four processors, a 40 GB disk and NAT networking.",
+    "caption": "The captured ESXi VM baseline has 4 GB memory, four processors, a 40 GB disk and NAT networking."
+  },
+  "esxi-console": {
+    "file": "labs/screenshots/esxi-console.webp",
+    "width": 460,
+    "height": 380,
+    "sha256": "7570951b3f7904712bb99058f2de4229b4902bfec90cab9477e003216f6bf040",
+    "alt": "The ESXi direct console displays its private IPv4 management address.",
+    "caption": "The ESXi direct console displays its private IPv4 management address."
+  },
+  "esxi-dashboard": {
+    "file": "labs/screenshots/esxi-dashboard.webp",
+    "width": 1600,
+    "height": 511,
+    "sha256": "92312f23b3dc921c898b0a7f37ad19eace402153f6645f879f57dce195df5d74",
+    "alt": "The ESXi Host Client dashboard is reachable from the host computer.",
+    "caption": "The ESXi Host Client dashboard is reachable from the host computer."
+  },
+  "esxi-guest": {
+    "file": "labs/screenshots/esxi-guest.webp",
+    "width": 1409,
+    "height": 708,
+    "sha256": "d446dca1137cb9ab703b2770d10f1ec7cc6f80750776db1658d0af34351655a5",
+    "alt": "The guest configuration capture shows two vCPUs, 4096 MB memory and a 27 GB virtual disk.",
+    "caption": "The guest configuration capture shows two vCPUs, 4096 MB memory and a 27 GB virtual disk."
+  },
+  "esxi-boot": {
+    "file": "labs/screenshots/esxi-boot.webp",
+    "width": 1523,
+    "height": 744,
+    "sha256": "d93a88beeafdc319ea4df74983d0b7c75cd37a755cd8a3e0022a90a12aadf9d1",
+    "alt": "The nested Windows Server VM is powered on and displays the Windows boot logo.",
+    "caption": "The nested Windows Server VM is powered on and displays the Windows boot logo."
+  }
+}

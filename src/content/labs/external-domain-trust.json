@@ -1,0 +1,141 @@
+{
+  "overview": "This lab kept two directory forests separate while allowing the designated domains to authenticate across an external trust. I prepared name resolution first, then configured the trust and a test share.",
+  "environment": [
+    "DC01 and separate-forest controller DC03",
+    "Two independent lab domains",
+    "Reciprocal conditional DNS forwarders",
+    "Dedicated cross-domain test share"
+  ],
+  "steps": [
+    {
+      "title": "Prepare DC03 networking",
+      "description": "I configured the third controller VM with its static lab address and the network settings needed for the new directory environment."
+    },
+    {
+      "title": "Install AD DS and create the partner forest",
+      "description": "I installed AD DS and selected Add a new forest on DC03 rather than adding it as a replica of the existing domain.",
+      "evidence": [
+        "trust-forest"
+      ]
+    },
+    {
+      "title": "Configure and check the forwarder on DC01",
+      "description": "I added a conditional forwarder for the partner domain on DC01 and checked the target DNS server in its properties.",
+      "evidence": [
+        "trust-forwarder-a"
+      ]
+    },
+    {
+      "title": "Configure and check the reciprocal forwarder",
+      "description": "I added the reverse conditional forwarder on DC03 so each namespace could direct partner-domain DNS queries to the other controller.",
+      "evidence": [
+        "trust-forwarder-b"
+      ]
+    },
+    {
+      "title": "Open the domain trust configuration",
+      "description": "I inspected the primary domain’s Trusts tab and launched the New Trust wizard."
+    },
+    {
+      "title": "Specify the partner domain",
+      "description": "I entered the second domain’s name, using the DNS configuration prepared in the preceding steps to locate it."
+    },
+    {
+      "title": "Select an external trust",
+      "description": "I chose External trust, which connects the specified domains without making the trust transitive to other domains.",
+      "evidence": [
+        "trust-type"
+      ]
+    },
+    {
+      "title": "Select the two-way direction",
+      "description": "I configured the trust in both directions so each designated domain could accept authentication from the other.",
+      "evidence": [
+        "trust-direction"
+      ]
+    },
+    {
+      "title": "Create both sides of the trust",
+      "description": "I selected Both this domain and the specified domain and supplied authorized administrative authentication to create both trust objects. Those sign-in values are not retained in the public images.",
+      "evidence": [
+        "trust-sides"
+      ]
+    },
+    {
+      "title": "Set the lab authentication scope",
+      "description": "I selected Domain-wide authentication for both sides as required by the exercise. Resource permissions still determine what an authenticated principal can access.",
+      "evidence": [
+        "trust-authentication"
+      ]
+    },
+    {
+      "title": "Confirm outgoing and incoming trust paths",
+      "description": "I completed the wizard and used its outgoing and incoming confirmation steps to check the configured relationship."
+    },
+    {
+      "title": "Inspect both domains’ trust lists",
+      "description": "I checked the primary and partner Trusts tabs. Each lists an external trust in both directions with non-transitive behavior.",
+      "evidence": [
+        "trust-confirm-a",
+        "trust-confirm-b"
+      ]
+    },
+    {
+      "title": "Create the dedicated test folder",
+      "description": "I created the cross-domain test folder on DC01 to provide a specific resource for the authentication and permission exercise."
+    },
+    {
+      "title": "Enable advanced sharing",
+      "description": "I opened Advanced Sharing and enabled the test share.",
+      "evidence": [
+        "trust-share"
+      ]
+    },
+    {
+      "title": "Resolve the partner-domain principal",
+      "description": "I changed the object-selection location to the partner domain and used Check Names to resolve the authorized test principal across the trust."
+    },
+    {
+      "title": "Apply the lab share permissions",
+      "description": "I gave the resolved partner principal the permissions required by the test. The exercise uses an administrator and Full Control, rather than demonstrating a minimal operational grant.",
+      "evidence": [
+        "trust-permissions"
+      ]
+    },
+    {
+      "title": "Connect from the partner domain",
+      "description": "I used a UNC path from DC03 to reach DC01 and checked the visible shared resource. The retained image shows the server’s share listing.",
+      "evidence": [
+        "trust-remote-share"
+      ]
+    },
+    {
+      "title": "Record the resource-access test",
+      "description": "My notes describe opening the shared folder and creating a test file. I retain this as a documented test because the supplied final screenshot shows share discovery rather than that file operation."
+    }
+  ],
+  "checks": [
+    {
+      "title": "Reciprocal DNS and trust configuration",
+      "description": "The captures show the forwarders and both domains’ external trust lists.",
+      "basis": "captured"
+    },
+    {
+      "title": "Cross-domain share discovery",
+      "description": "The partner-domain session can list the resource shared by DC01.",
+      "basis": "captured"
+    },
+    {
+      "title": "Folder and file operation",
+      "description": "The report describes opening the share and creating a file; the retained image does not independently show file creation.",
+      "basis": "documented"
+    }
+  ],
+  "lessons": [
+    "Cross-domain authentication depends on being able to resolve the partner namespace.",
+    "A two-way trust is still constrained by its type and the resource permissions.",
+    "Trust establishes an authentication path; it does not automatically grant access to every shared folder.",
+    "Selective authentication and narrower non-administrative grants should be considered for a real cross-organization requirement."
+  ],
+  "scope": "Domain-wide authentication and administrator Full Control were training choices. The captured evidence establishes trust configuration and share discovery, while the file-creation result remains supported by the written notes."
+}

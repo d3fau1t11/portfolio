@@ -3,6 +3,7 @@
   <url><loc>https://d3fau1t11.github.io/portfolio/</loc></url>
   <url><loc>https://d3fau1t11.github.io/portfolio/certifications/</loc></url>
   <url><loc>https://d3fau1t11.github.io/portfolio/writeups/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/</loc></url>
   <url><loc>https://d3fau1t11.github.io/portfolio/writeups/old-paper/</loc></url>
   <url><loc>https://d3fau1t11.github.io/portfolio/writeups/catalogue-of-secrets/</loc></url>
   <url><loc>https://d3fau1t11.github.io/portfolio/writeups/someone-elses-receipt/</loc></url>
@@ -33,5 +34,13 @@
   <url><loc>https://d3fau1t11.github.io/portfolio/writeups/midnight-signal/</loc></url>
   <url><loc>https://d3fau1t11.github.io/portfolio/writeups/repair-shop/</loc></url>
   <url><loc>https://d3fau1t11.github.io/portfolio/writeups/caravan-routes/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/active-directory-deployment/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/windows-dhcp-wds/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/ad-accounts-access-controls/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/windows-storage-raid/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/rras-vpn-nat/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/domain-controller-replication/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/external-domain-trust/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/windows-network-load-balancing/</loc></url>
+  <url><loc>https://d3fau1t11.github.io/portfolio/labs/nested-esxi-virtualization/</loc></url>
 </urlset>
-

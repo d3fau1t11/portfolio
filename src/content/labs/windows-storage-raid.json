@@ -1,0 +1,76 @@
+{
+  "overview": "The exercise compared storage layouts using small virtual disks. I used Windows software volumes to observe the capacity trade-offs between striping, mirroring and distributed parity.",
+  "environment": [
+    "Windows Server VM DC01",
+    "Seven added 1 GB virtual disks",
+    "Windows Disk Management",
+    "NTFS-formatted dynamic volumes"
+  ],
+  "steps": [
+    {
+      "title": "Attach the lab disks",
+      "description": "I used the VMware hardware settings to add seven small virtual disks while keeping the operating system disk separate.",
+      "evidence": [
+        "storage-disks"
+      ]
+    },
+    {
+      "title": "Initialize the new disks",
+      "description": "I opened Disk Management, selected the added disks and initialized them. The captured dialog has GPT selected; partition style is separate from the striped, mirrored or parity-based volume layout.",
+      "evidence": [
+        "storage-initialize"
+      ]
+    },
+    {
+      "title": "Start a striped volume",
+      "description": "I selected two disks for a striped RAID 0 volume, combining their capacity for the exercise."
+    },
+    {
+      "title": "Format and convert the striped disks",
+      "description": "I assigned the volume label and drive letter, formatted it with NTFS and accepted the basic-to-dynamic disk conversion required by the wizard."
+    },
+    {
+      "title": "Inspect the striped result",
+      "description": "I checked the striped volume’s Healthy status and its two-disk layout in Disk Management.",
+      "evidence": [
+        "storage-stripe"
+      ]
+    },
+    {
+      "title": "Create the mirrored volume",
+      "description": "I used two different disks for RAID 1. The wizard retained approximately one disk of usable space because the second disk holds the mirror.",
+      "evidence": [
+        "storage-mirror"
+      ]
+    },
+    {
+      "title": "Create the RAID 5 volume",
+      "description": "I combined the remaining three disks in a RAID 5 volume with distributed parity, assigned its label and drive letter and formatted it with NTFS."
+    },
+    {
+      "title": "Review the completed volume layout",
+      "description": "I inspected the final Disk Management view and compared the striped, mirrored and parity-based layouts and their reported status.",
+      "evidence": [
+        "storage-final"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "title": "Disk and volume configuration",
+      "description": "The captures show added disks, the selected partition style, stripe and mirror setup and the final volume layout.",
+      "basis": "captured"
+    },
+    {
+      "title": "Capacity comparison",
+      "description": "The mirror wizard visibly retains one disk of usable capacity when two disks are selected.",
+      "basis": "captured"
+    }
+  ],
+  "lessons": [
+    "RAID 0 combines capacity but has no disk-failure redundancy.",
+    "RAID 1 trades usable capacity for a second copy; three-disk RAID 5 reserves the equivalent of one disk for parity.",
+    "RAID does not replace backup, and a Healthy status is not a failure-recovery test."
+  ],
+  "scope": "The lab demonstrates configuration and capacity trade-offs on virtual disks. It contains no measured throughput benchmark or captured disk-failure/rebuild test. Dynamic disk layouts are documented as the curriculum exercise, not as a new production storage recommendation."
+}

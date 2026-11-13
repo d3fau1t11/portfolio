@@ -9,6 +9,7 @@ export function SiteHeader({ page }: { page: Page }) {
   const links = [
     { label: 'About', href: siteUrl('#about') },
     { label: 'Projects', href: siteUrl('#projects') },
+    { label: 'Labs', href: siteUrl('labs/'), current: page === 'labs' || page === 'lab' },
     { label: 'Security', href: siteUrl('#security') },
     { label: 'Write-ups', href: siteUrl('writeups/'), current: page === 'writeups' },
     { label: 'Credentials', href: siteUrl('certifications/'), current: page === 'certifications' },

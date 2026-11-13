@@ -1,0 +1,117 @@
+{
+  "overview": "This exercise used morning and evening student accounts to explore identity management and authorization. I tested both allowed behavior and rejection messages so the account and folder policies could be checked in practice.",
+  "environment": [
+    "DC01 and Windows 10 client workstations",
+    "Morning and evening student accounts",
+    "AMG and PMG security groups",
+    "Staff share with Morning and Evening folders"
+  ],
+  "steps": [
+    {
+      "title": "Join the client to the lab domain",
+      "description": "I joined the Windows client to the domain so it could use centralized directory accounts and policy settings."
+    },
+    {
+      "title": "Organize the directory objects",
+      "description": "I used Active Directory Users and Computers to create organizational units and keep the lab accounts and groups organized."
+    },
+    {
+      "title": "Create the student accounts",
+      "description": "I provisioned the morning and evening student accounts and verified the account inventory.",
+      "evidence": [
+        "ad-accounts"
+      ]
+    },
+    {
+      "title": "Create and populate the security groups",
+      "description": "I created AMG and PMG and placed the corresponding students in each group so folder permissions could be assigned through group membership.",
+      "evidence": [
+        "ad-groups"
+      ]
+    },
+    {
+      "title": "Configure permitted logon hours",
+      "description": "I set a morning logon window for the designated account, then tested a logon outside that permitted window.",
+      "evidence": [
+        "ad-logon-hours",
+        "ad-time-denied"
+      ]
+    },
+    {
+      "title": "Restrict the approved workstation",
+      "description": "I set the designated account’s Log On To list to PC01 and tested an attempt from the unapproved workstation.",
+      "evidence": [
+        "ad-workstation",
+        "ad-workstation-denied"
+      ]
+    },
+    {
+      "title": "Configure and test account expiration",
+      "description": "I set an account expiration date and checked the expired-account rejection on the client.",
+      "evidence": [
+        "ad-expiration",
+        "ad-expired-denied"
+      ]
+    },
+    {
+      "title": "Disable an account",
+      "description": "I disabled the selected evening account and retained the directory confirmation of that change.",
+      "evidence": [
+        "ad-disable"
+      ]
+    },
+    {
+      "title": "Configure the Staff share",
+      "description": "I enabled sharing on the parent Staff folder. The captured share layer grants Everyone broad access, with the underlying NTFS entries controlling the subfolders.",
+      "evidence": [
+        "share-layer"
+      ]
+    },
+    {
+      "title": "Separate the Morning folder permissions",
+      "description": "I disabled inheritance for the department folder and applied explicit morning and evening group entries as required by the exercise.",
+      "evidence": [
+        "ntfs-morning"
+      ]
+    },
+    {
+      "title": "Configure the Evening folder permissions",
+      "description": "I configured the evening group’s entries on its folder rather than relying on the same inherited policy as the Morning folder.",
+      "evidence": [
+        "ntfs-evening"
+      ]
+    },
+    {
+      "title": "Test allowed and rejected folder access",
+      "description": "I used the morning account to open its permitted folder and then attempted the Evening folder. The screenshots show the permitted browse and the rejected access.",
+      "evidence": [
+        "share-allowed",
+        "share-denied"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "title": "Account lifecycle restrictions",
+      "description": "The screenshots show time, workstation and expiration restrictions with their client rejection prompts, plus account disabling.",
+      "basis": "captured"
+    },
+    {
+      "title": "Group-based folder separation",
+      "description": "The permission views and client tests show different outcomes for the Morning and Evening resources.",
+      "basis": "captured"
+    },
+    {
+      "title": "Inheritance changes",
+      "description": "The report describes disabling inherited permissions before applying the department-specific entries.",
+      "basis": "documented"
+    }
+  ],
+  "lessons": [
+    "Groups make role-based permission management easier to maintain than many individual grants.",
+    "Authentication restrictions and resource permissions control different parts of access.",
+    "Network access must satisfy both share and NTFS permissions; inherited and explicit entries need careful review.",
+    "The exercise’s Full Control grants are broader than typical student needs. A practical least-privilege design should choose narrower rights such as Read or Modify where appropriate."
+  ],
+  "scope": "These tests demonstrate department separation and account restrictions. They do not prove that the broad share policy, explicit deny entries or Full Control grants are the minimum permissions appropriate for a real organization."
+}

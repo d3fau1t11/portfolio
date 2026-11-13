@@ -9,7 +9,7 @@ const projectNames = [
 test('home presents the requested profile, projects and working contact targets', async ({ page }) => {
   await page.goto('./')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Habtemariam')
-  await expect(page.locator('.hero-role')).toHaveText('Software Developer | Cybersecurity Practitioner')
+  await expect(page.locator('.hero-role')).toHaveText('Software Developer | Cybersecurity Practitioner | Server Administration')
   await expect(page.locator('#about')).toContainText('Expected graduation · 2027')
   await expect(page.locator('#about')).toContainText('IN PROGRESS')
   await expect(page.locator('#projects h3')).toHaveText(projectNames)

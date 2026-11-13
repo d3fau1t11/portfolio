@@ -1,0 +1,159 @@
+[
+  {
+    "slug": "active-directory-deployment",
+    "title": "Deploying Active Directory Domain Services",
+    "order": 1,
+    "summary": "I prepared a Windows Server VM, installed AD DS, promoted DC01 into a new forest and configured its static network settings.",
+    "topics": [
+      "Active Directory",
+      "AD DS",
+      "DNS",
+      "Windows Server",
+      "VMware"
+    ],
+    "stepCount": 9,
+    "evidenceCount": 5,
+    "cover": "ad-prerequisites",
+    "category": "Windows Server"
+  },
+  {
+    "slug": "windows-dhcp-wds",
+    "title": "DHCP & Windows Deployment Services",
+    "order": 2,
+    "summary": "I authorized DHCP, configured a lab scope and used WDS to boot and deploy a Windows 10 client over the virtual network.",
+    "topics": [
+      "DHCP",
+      "WDS",
+      "PXE",
+      "Windows imaging",
+      "Active Directory"
+    ],
+    "stepCount": 12,
+    "evidenceCount": 8,
+    "cover": "wds-desktop",
+    "category": "Windows Server",
+    "featured": true
+  },
+  {
+    "slug": "ad-accounts-access-controls",
+    "title": "Active Directory accounts & access controls",
+    "order": 3,
+    "summary": "I organized users and groups, tested logon restrictions and separated morning and evening folder access with share and NTFS permissions.",
+    "topics": [
+      "Active Directory",
+      "Access control",
+      "NTFS",
+      "Security groups",
+      "Account restrictions"
+    ],
+    "stepCount": 12,
+    "evidenceCount": 14,
+    "cover": "share-denied",
+    "featured": true,
+    "category": "Windows Server"
+  },
+  {
+    "slug": "windows-storage-raid",
+    "title": "Windows storage & software RAID",
+    "order": 4,
+    "summary": "I attached virtual disks, initialized them and built striped, mirrored and RAID 5 volumes in Windows Disk Management.",
+    "topics": [
+      "Storage",
+      "RAID 0",
+      "RAID 1",
+      "RAID 5",
+      "Dynamic disks"
+    ],
+    "stepCount": 8,
+    "evidenceCount": 5,
+    "cover": "storage-final",
+    "category": "Windows Server"
+  },
+  {
+    "slug": "rras-vpn-nat",
+    "title": "RRAS VPN, NAT & connection accounting",
+    "order": 5,
+    "summary": "I configured a dual-adapter RRAS lab, set NAT and access policy, corrected a client hostname error and checked the connected VPN session.",
+    "topics": [
+      "RRAS",
+      "VPN",
+      "NAT",
+      "NPS",
+      "PPTP",
+      "Troubleshooting"
+    ],
+    "stepCount": 12,
+    "evidenceCount": 11,
+    "cover": "vpn-connected",
+    "category": "Windows Server"
+  },
+  {
+    "slug": "domain-controller-replication",
+    "title": "Adding a domain controller & checking replication",
+    "order": 6,
+    "summary": "I joined DC02 to the lab domain, promoted it with DNS and Global Catalog and checked replication with repadmin.",
+    "topics": [
+      "Active Directory",
+      "Replication",
+      "DNS",
+      "Global Catalog",
+      "repadmin"
+    ],
+    "stepCount": 8,
+    "evidenceCount": 6,
+    "cover": "replica-summary",
+    "category": "Windows Server"
+  },
+  {
+    "slug": "external-domain-trust",
+    "title": "Two-way external domain trust",
+    "order": 7,
+    "summary": "I configured reciprocal DNS forwarding, created a non-transitive external trust and tested cross-domain share access.",
+    "topics": [
+      "Active Directory",
+      "External trust",
+      "DNS forwarders",
+      "Cross-domain access",
+      "SMB"
+    ],
+    "stepCount": 18,
+    "evidenceCount": 12,
+    "cover": "trust-confirm-a",
+    "category": "Windows Server"
+  },
+  {
+    "slug": "windows-network-load-balancing",
+    "title": "A two-node IIS Network Load Balancing lab",
+    "order": 8,
+    "summary": "I configured an NLB cluster with a shared virtual address and labeled IIS pages to identify the responding server.",
+    "topics": [
+      "NLB",
+      "IIS",
+      "Virtual IP",
+      "Convergence",
+      "Windows Server"
+    ],
+    "stepCount": 6,
+    "evidenceCount": 3,
+    "cover": "nlb-converged",
+    "category": "Windows Server"
+  },
+  {
+    "slug": "nested-esxi-virtualization",
+    "title": "Nested ESXi & virtual infrastructure troubleshooting",
+    "order": 9,
+    "summary": "I ran ESXi inside VMware Workstation, created a Windows Server guest and investigated virtual networking and datastore failures.",
+    "topics": [
+      "ESXi",
+      "VMware",
+      "Nested virtualization",
+      "VMFS",
+      "Troubleshooting"
+    ],
+    "stepCount": 12,
+    "evidenceCount": 5,
+    "cover": "esxi-boot",
+    "featured": true,
+    "category": "Virtualization"
+  }
+]

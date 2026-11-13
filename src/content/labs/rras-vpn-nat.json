@@ -1,0 +1,122 @@
+{
+  "overview": "This exercise connected Windows Remote Access configuration with interface roles, policy and accounting. I also worked through a client destination-name mistake before checking the server’s active connection view.",
+  "environment": [
+    "Windows Server DC01 and Windows 10 client",
+    "Two virtual adapters: Private and Public",
+    "Remote Access, RRAS and Network Policy Server",
+    "VMware virtual NAT and internal segments"
+  ],
+  "steps": [
+    {
+      "title": "Add the second network adapter",
+      "description": "I added a second adapter to the server VM and attached it to the VMware NAT network. Public is the lab’s interface label; it is not evidence of an Internet-facing public address.",
+      "evidence": [
+        "vpn-adapters"
+      ]
+    },
+    {
+      "title": "Install the access and policy roles",
+      "description": "I installed Remote Access with VPN (RAS) and Routing, together with Network Policy and Access Services.",
+      "evidence": [
+        "vpn-roles"
+      ]
+    },
+    {
+      "title": "Select the VPN-only deployment path",
+      "description": "I used the Remote Access setup path for VPN deployment and opened the Routing and Remote Access console."
+    },
+    {
+      "title": "Enable VPN access and NAT in RRAS",
+      "description": "I selected Custom configuration, enabled VPN access and NAT, and started the RRAS service.",
+      "evidence": [
+        "vpn-custom"
+      ]
+    },
+    {
+      "title": "Name the interfaces clearly",
+      "description": "I renamed the adapters Private and Public before binding NAT so their intended roles were easier to distinguish.",
+      "evidence": [
+        "vpn-names"
+      ]
+    },
+    {
+      "title": "Configure the external NAT interface",
+      "description": "I selected Public as the external interface and enabled NAT on it.",
+      "evidence": [
+        "vpn-nat-public"
+      ]
+    },
+    {
+      "title": "Configure the private NAT interface",
+      "description": "I identified Private as connected to the internal network and reviewed the NAT list with both interfaces present.",
+      "evidence": [
+        "vpn-nat-private",
+        "vpn-nat-table"
+      ]
+    },
+    {
+      "title": "Set the NPS connection policy",
+      "description": "I updated the matching RRAS network policy to grant access under the lab’s VPN dial-up connection conditions.",
+      "evidence": [
+        "vpn-policy"
+      ]
+    },
+    {
+      "title": "Enable connection accounting",
+      "description": "I configured local Inbox Accounting in Remote Access reporting so the service could retain connection information.",
+      "evidence": [
+        "vpn-accounting"
+      ]
+    },
+    {
+      "title": "Create and correct the client profile",
+      "description": "I created the Windows VPN connection profile. When its destination name failed, I compared the entered hostname with the intended server name and corrected the typo."
+    },
+    {
+      "title": "Check client connection status",
+      "description": "After correcting the destination, I recorded the profile’s Connected state on the client.",
+      "evidence": [
+        "vpn-connected"
+      ]
+    },
+    {
+      "title": "Inspect the server session",
+      "description": "I reviewed the active connection in Remote Client Status. The capture identifies PPTP and includes session statistics; the user identity field is removed from the display copy.",
+      "evidence": [
+        "vpn-session"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "title": "RRAS interfaces and policy",
+      "description": "The captures show both NAT interfaces, the selected NPS access policy and the accounting configuration.",
+      "basis": "captured"
+    },
+    {
+      "title": "Client and server connection state",
+      "description": "The client shows Connected and the server lists an active PPTP session.",
+      "basis": "captured"
+    },
+    {
+      "title": "Hostname correction",
+      "description": "The report records the initially mistyped destination and its correction before connection succeeded.",
+      "basis": "documented"
+    }
+  ],
+  "lessons": [
+    "Interface labels and NAT bindings should make the packet path understandable.",
+    "A destination-name error can look like a service failure; name resolution is an early troubleshooting check.",
+    "A connected tunnel does not by itself establish strong security or a restrictive access policy.",
+    "PPTP is obsolete. A current remote-access design should use suitable modern protocols and separate the gateway role from a domain controller."
+  ],
+  "scope": "PPTP, broad lab policy settings and combined server roles are recorded as training choices. I do not present this as a secure Internet deployment, and no account password or VPN key is included.",
+  "troubleshooting": [
+    {
+      "title": "The VPN destination did not resolve",
+      "symptom": "The initial client profile used the wrong server name and domain suffix.",
+      "action": "I compared the profile with the intended server identity, corrected the destination and retried the connection.",
+      "result": "The client displayed Connected and the server recorded the session."
+    }
+  ]
+}

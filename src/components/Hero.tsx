@@ -36,9 +36,9 @@ export function Hero() {
   return (
     <section className="hero container" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <p className="eyebrow"><span aria-hidden="true" />SOFTWARE / SECURITY / CONTINUOUS LEARNING</p>
+        <p className="eyebrow"><span aria-hidden="true" />SOFTWARE / SECURITY / SERVER ADMINISTRATION</p>
         <h1 id="hero-title">Habtemariam<br /><span>Chuchu<span className="name-period">.</span></span></h1>
-        <p className="hero-role">Software Developer <span className="role-divider">|</span> Cybersecurity Practitioner</p>
+        <p className="hero-role">{profile.headline.split(' | ').map((role, index) => <span key={role}>{index > 0 && <span className="role-divider"> | </span>}{role}</span>)}</p>
         <p className="hero-intro">{profile.intro}</p>
         <div className="hero-actions">
           <m.a className="button button-primary" href="#projects" whileHover={{ y: -2 }}>View projects<ArrowUpRight size={18} aria-hidden="true" /></m.a>

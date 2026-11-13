@@ -1,0 +1,106 @@
+{
+  "overview": "The task connected automatic network addressing to network-based operating system deployment. DC01 supplied DHCP and WDS, while a blank client VM booted through PXE and reached a Windows desktop.",
+  "environment": [
+    "DC01: AD DS, DNS, DHCP and WDS",
+    "Private 192.168.1.0/24 lab subnet",
+    "Windows 10 PXE client VM",
+    "Windows boot and install WIM images"
+  ],
+  "steps": [
+    {
+      "title": "Install the DHCP server role",
+      "description": "I added DHCP Server and its administration tools to DC01 through Server Manager."
+    },
+    {
+      "title": "Complete DHCP post-installation tasks",
+      "description": "I completed the post-installation wizard, creating the management security groups and authorizing the DHCP server in Active Directory.",
+      "evidence": [
+        "dhcp-authorization"
+      ]
+    },
+    {
+      "title": "Define the IPv4 scope",
+      "description": "I created the lab /24 scope with the configured distribution range from 192.168.1.1 through 192.168.1.254.",
+      "evidence": [
+        "dhcp-scope"
+      ]
+    },
+    {
+      "title": "Add the lab exclusion range",
+      "description": "I excluded addresses 192.168.1.1 through 192.168.1.10 from allocation. This made .11 available for the first client lease.",
+      "evidence": [
+        "dhcp-exclusions"
+      ]
+    },
+    {
+      "title": "Set the lease duration",
+      "description": "I configured a one-hour lease to make address reuse and testing convenient in the short-lived lab.",
+      "evidence": [
+        "dhcp-lease"
+      ]
+    },
+    {
+      "title": "Activate and inspect the scope",
+      "description": "I activated the scope and inspected the Address Pool view to compare the distribution and exclusion ranges.",
+      "evidence": [
+        "dhcp-pool"
+      ]
+    },
+    {
+      "title": "Install and initialize WDS",
+      "description": "I installed the Deployment Server and Transport Server services, then configured WDS with the existing directory, DNS and DHCP services and an NTFS image store."
+    },
+    {
+      "title": "Import the boot and install images",
+      "description": "I imported the Windows boot.wim and install.wim images from installation media. The boot image provides WinPE; the install image supplies the operating system payload.",
+      "evidence": [
+        "wds-image"
+      ]
+    },
+    {
+      "title": "Start the deployment service",
+      "description": "I started WDS from its management console after preparing the image store."
+    },
+    {
+      "title": "PXE boot the blank client",
+      "description": "I booted the client VM from its network adapter, observed its DHCP lease and WDSNBP download, and continued into network boot.",
+      "evidence": [
+        "wds-pxe"
+      ]
+    },
+    {
+      "title": "Complete Windows setup",
+      "description": "I followed Windows setup and the out-of-box account and network configuration without publishing sign-in information."
+    },
+    {
+      "title": "Verify the deployed desktop",
+      "description": "The final client capture shows the Windows 10 desktop reached through the deployment workflow.",
+      "evidence": [
+        "wds-desktop"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "title": "DHCP authorization and scope",
+      "description": "The screenshots show completed authorization, the configured pool, exclusions and one-hour lease.",
+      "basis": "captured"
+    },
+    {
+      "title": "Network boot",
+      "description": "The retained PXE lines show the client address, DHCP server and WDSNBP download. Machine GUID and MAC identity lines are excluded.",
+      "basis": "captured"
+    },
+    {
+      "title": "Client desktop",
+      "description": "The final capture shows the deployed Windows 10 desktop.",
+      "basis": "captured"
+    }
+  ],
+  "lessons": [
+    "DHCP service installation must be followed by domain authorization and scope configuration.",
+    "PXE boot and operating system image delivery are different stages of deployment.",
+    "Lease policy and exclusions should be chosen for the environment rather than copied from a lab."
+  ],
+  "scope": "The captured scope excludes the first ten addresses but leaves DC01’s static .200 address inside the distribution range. A repeat setup needs an additional exclusion or suitable reservation for every static server address. This case documents the lab behavior rather than endorsing its addressing plan."
+}

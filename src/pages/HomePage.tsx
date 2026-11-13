@@ -1,4 +1,4 @@
-import { ArrowUpRight, BookOpen, Braces, Fingerprint, GraduationCap, Layers, MapPin, Network, ShieldCheck, Trophy } from 'lucide-react'
+import { ArrowUpRight, BookOpen, Braces, Fingerprint, GraduationCap, Layers, MapPin, Network, Server, ShieldCheck, Trophy } from 'lucide-react'
 import { profile } from '../data/profile'
 import { siteUrl } from '../lib/urls'
 import { Hero } from '../components/Hero'
@@ -7,6 +7,7 @@ import { SectionHeading } from '../components/SectionHeading'
 import { FeaturedCredentials } from '../components/FeaturedCredentials'
 import { ContactSection } from '../components/ContactSection'
 import { WriteupSection } from '../components/WriteupSection'
+import { LabSection } from '../components/LabSection'
 
 function AboutSection() {
   return (
@@ -21,13 +22,14 @@ function AboutSection() {
         </div>
         <div className="education-list" role="group" aria-label="Current education and training">
           <article className="education-card"><span className="education-icon"><GraduationCap size={23} aria-hidden="true" /></span><div><span className="study-status">CURRENTLY ATTENDING</span><h3>BSc Computer Science</h3><p>Unity University</p><span className="education-detail">Expected graduation · 2027</span></div></article>
-          <article className="education-card"><span className="education-icon"><BookOpen size={22} aria-hidden="true" /></span><div><span className="study-status">IN PROGRESS</span><h3>Cybersecurity Training Program</h3><p>IBT College of Canada</p><span className="education-detail">Addis Ababa, Ethiopia</span><p className="study-topics">Computer networking, Windows and Linux administration, penetration testing, and offensive and defensive security activities.</p></div></article>
+          <article className="education-card"><span className="education-icon"><BookOpen size={22} aria-hidden="true" /></span><div><span className="study-status">IN PROGRESS</span><h3>Cybersecurity Training Program</h3><p>Practical cybersecurity study</p><span className="education-detail">Addis Ababa, Ethiopia</span><p className="study-topics">Computer networking, Windows and Linux administration, penetration testing, and offensive and defensive security activities.</p></div></article>
         </div>
       </div>
       <div className="container expertise-grid">
         <div className="expertise-item"><Braces size={20} aria-hidden="true" /><h3>Web & mobile</h3><p>React · React Native · Expo<br />JavaScript · TypeScript</p></div>
         <div className="expertise-item"><Layers size={20} aria-hidden="true" /><h3>Backend & data</h3><p>Express · API development<br />PostgreSQL · Drizzle · Firebase</p></div>
         <div className="expertise-item"><ShieldCheck size={20} aria-hidden="true" /><h3>Security practice</h3><p>Authentication · Access control<br />Networks · Windows · Linux · CTFs</p></div>
+        <div className="expertise-item"><Server size={20} aria-hidden="true" /><h3>Server administration</h3><p>Windows Server · Active Directory<br />VMware · ESXi · Storage & access</p></div>
       </div>
     </section>
   )
@@ -60,6 +62,7 @@ export function HomePage() {
       <Hero />
       <AboutSection />
       <ProjectSection />
+      <LabSection />
       <SecuritySection />
       <WriteupSection />
       <FeaturedCredentials />

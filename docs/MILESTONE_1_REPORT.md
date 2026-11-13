@@ -9,7 +9,7 @@ The functional MVP, production output, documentation and deployment workflow are
 ## 1. Implemented features
 
 - A home page with the requested software-development and cybersecurity identity, introduction, project/contact actions and accurate contact links.
-- Current BSc Computer Science study at Unity University, expected graduation 2027, and an in-progress IBT College of Canada cybersecurity training program.
+- Current BSc Computer Science study at Unity University, expected graduation 2027, and an in-progress cybersecurity training program.
 - Exactly three showcased projects, in order: **Attendance App**, **WatchVault**, **GPA Calculator**. Each has a problem, approach, technology list and repository link.
 - An original Attendance App architecture diagram showing mobile and administration clients, Express API, PostgreSQL, Drizzle/Supabase and a shared attendance core. It is explicitly an architecture overview.
 - Cybersecurity study areas and competition experience: the authorized national University CTF **5th place as a solo competitor**, and HTB participation with explicitly attributed team placement.

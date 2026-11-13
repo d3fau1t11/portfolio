@@ -1,0 +1,118 @@
+{
+  "overview": "This lab placed ESXi, a Type 1 hypervisor, inside a Workstation VM and then created a nested Windows Server VM inside ESXi. The most useful part of the exercise was separating management-network failures from storage and guest power-on failures.",
+  "environment": [
+    "Windows host → VMware Workstation → nested ESXi",
+    "VMware ESXi 8 and Host Client",
+    "VMnet8 NAT management network",
+    "VMFS datastore and Windows Server guest"
+  ],
+  "steps": [
+    {
+      "title": "Prepare the outer ESXi VM",
+      "description": "I created the VMware VM for ESXi and configured its storage and NAT networking. The retained baseline capture shows 4 GB memory, four processors and a 40 GB disk.",
+      "evidence": [
+        "esxi-resources"
+      ]
+    },
+    {
+      "title": "Enable nested virtualization and install ESXi",
+      "description": "My setup notes describe exposing hardware virtualization to the ESXi guest, attaching its installer, selecting the installation disk and completing the hypervisor installation. No root password is published."
+    },
+    {
+      "title": "Identify the management endpoint",
+      "description": "I used the ESXi direct console to identify its private management address after startup.",
+      "evidence": [
+        "esxi-console"
+      ]
+    },
+    {
+      "title": "Restore host-to-ESXi network access",
+      "description": "When the Host Client was unreachable, I checked the typed address, host IP configuration and the VMnet8 host adapter. My troubleshooting notes record restoring that adapter and the VMware networking services."
+    },
+    {
+      "title": "Open the ESXi Host Client",
+      "description": "After restoring management reachability, I accessed the local HTTPS Host Client and inspected the host’s configuration and available storage.",
+      "evidence": [
+        "esxi-dashboard"
+      ]
+    },
+    {
+      "title": "Prepare usable datastore capacity",
+      "description": "I investigated the missing/free-space datastore problem and provisioned separate storage for the VMFS datastore rather than relying on the small ESXi system disk."
+    },
+    {
+      "title": "Upload the guest installation image",
+      "description": "I used the datastore browser to upload Windows Server installation media for the nested guest."
+    },
+    {
+      "title": "Create and configure the Windows guest",
+      "description": "I used Create / Register VM and configured the guest resources. The captured settings show two vCPUs, 4096 MB memory and a 27 GB disk at that stage.",
+      "evidence": [
+        "esxi-guest"
+      ]
+    },
+    {
+      "title": "Investigate the failed power-on",
+      "description": "I inspected the detailed MonitorLoop task error. The recorded No space left on device message identified insufficient space for the guest’s swap file, beyond the already allocated media and virtual disk."
+    },
+    {
+      "title": "Resolve the recorded resource constraints",
+      "description": "The notes describe recreating the guest on a larger datastore and resolving host virtualization-feature conflicts. The datastore change addressed the explicit swap-allocation failure."
+    },
+    {
+      "title": "Power on the nested guest",
+      "description": "The final retained capture shows the Windows Server guest powered on at the Windows boot logo inside the ESXi console.",
+      "evidence": [
+        "esxi-boot"
+      ]
+    },
+    {
+      "title": "Record the limits of the final capture",
+      "description": "I used the console and Host Client resource views to check guest startup. The report describes Windows setup, but the supplied image does not show its completed installation or a final desktop."
+    }
+  ],
+  "checks": [
+    {
+      "title": "ESXi management access",
+      "description": "The direct console and Host Client captures show the running hypervisor and its reachable management interface.",
+      "basis": "captured"
+    },
+    {
+      "title": "Guest configuration and power-on",
+      "description": "The screenshots show the guest resource settings and Windows boot logo.",
+      "basis": "captured"
+    },
+    {
+      "title": "Networking and datastore remediation",
+      "description": "The written notes describe restoring VMnet8 connectivity and resolving the datastore/swap allocation errors.",
+      "basis": "documented"
+    }
+  ],
+  "lessons": [
+    "Nested virtualization has distinct outer-host, hypervisor and inner-guest resource dependencies.",
+    "A browser timeout can originate in virtual networking rather than the management service.",
+    "Datastore planning must include installation media, guest disks and swap-file space.",
+    "Detailed task errors provide stronger diagnostic evidence than a generic power-on failure label."
+  ],
+  "scope": "The report’s planned 8 GB/eight-processor and 40 GB guest profiles differ from the retained captures. I present the pictured settings as stage-specific observations, not final recommended allocations. The 27 GB guest disk is below the published 32 GB Windows Server baseline. The final image proves boot activity, not a completed OS installation or a performance benchmark.",
+  "troubleshooting": [
+    {
+      "title": "The ESXi management page timed out",
+      "symptom": "The typed address contained an incorrect octet, and connectivity still failed after the typo was corrected. The host’s VMnet8 adapter was missing from the recorded IP configuration.",
+      "action": "I corrected the URL, restored the VMnet8 host virtual adapter in Virtual Network Editor and restarted the VMware DHCP and NAT services.",
+      "result": "My notes record ping replies and successful Host Client access after the virtual network was restored."
+    },
+    {
+      "title": "No usable datastore space was available",
+      "symptom": "The initial disk left no suitable free area for a guest datastore. A small later datastore could not accommodate the installation ISO and guest allocation.",
+      "action": "I provisioned separate, larger virtual storage and created a VMFS datastore with headroom for the guest and its media.",
+      "result": "The report records that the installation media could be uploaded and the guest registered on the larger datastore."
+    },
+    {
+      "title": "Guest power-on failed with a swap-file error",
+      "symptom": "The power-on task included MonitorLoop failure and an explicit inability to extend the guest swap file because the datastore had no free space.",
+      "action": "I addressed the datastore capacity and the host virtualization conflicts described in my troubleshooting record, then registered and powered on the guest again.",
+      "result": "The final supplied capture shows the nested Windows guest at its boot logo."
+    }
+  ]
+}
