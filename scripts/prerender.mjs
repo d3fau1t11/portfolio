@@ -50,7 +50,7 @@ try {
           {
             '@type': 'Person', '@id': personId, name: profile.name,
             description: profile.intro, url: siteOrigin,
-            sameAs: [profile.github], knowsAbout: profile.skills,
+            sameAs: [profile.github, profile.telegram], knowsAbout: profile.skills,
           },
           {
             '@type': 'WebSite', '@id': websiteId, name: profile.name + ' — Portfolio',
