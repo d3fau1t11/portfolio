@@ -24,6 +24,10 @@ const labContents = new Map(await Promise.all(labs.map(async (lab) => {
 })))
 const pages = ['index.html', 'certifications/index.html', 'writeups/index.html', 'labs/index.html', ...writeupSlugs.map((slug) => 'writeups/' + slug + '/index.html'), ...labSlugs.map((slug) => 'labs/' + slug + '/index.html')]
 assert.equal(pages.length, 43, 'Expected 43 static pages')
+const googleVerificationFile = 'google27aa09e668bdc9f3.html'
+const googleVerificationSource = await readFile(resolve('public', googleVerificationFile))
+assert.equal(googleVerificationSource.toString('utf8').trim(), 'google-site-verification: ' + googleVerificationFile, 'Only the supplied Google verification text may be published')
+assert.deepEqual(await readFile(resolve(output, googleVerificationFile)), googleVerificationSource, 'Google verification file must be copied without changes')
 const files = []
 const approvedArtwork = new Set(['favicon.svg', 'social-card.svg', 'social-card.png'])
 const certificateAssets = JSON.parse(await readFile(resolve('src/data/certificate-assets.json'), 'utf8'))
@@ -148,7 +152,7 @@ assert.deepEqual(files.map((path) => relative(output, path).replaceAll('\\', '/'
   .filter((name) => name.startsWith('certificates/')).sort(), [...reviewedCertificateFiles.keys()].sort(), 'Reviewed certificate assets missing or unexpected files present')
 assert.deepEqual(files.map((path) => relative(output, path).replaceAll('\\', '/'))
   .filter((name) => name.startsWith('labs/')).sort(), ['labs/index.html', ...labSlugs.map((slug) => 'labs/' + slug + '/index.html'), ...reviewedLabFiles.keys()].sort(), 'Unapproved or missing lab output')
-assert.equal(files.filter((path) => path.endsWith('.html')).length, 43, 'Expected 43 actual static HTML pages')
+assert.deepEqual(files.filter((path) => path.endsWith('.html')).map((path) => relative(output, path).replaceAll('\\', '/')).sort(), [...pages, googleVerificationFile].sort(), 'Expected exactly the 43 portfolio pages and the supplied Google verification file')
 
 const canonicalUrls = new Set()
 const pageTitles = new Set()
@@ -285,5 +289,5 @@ for (const path of files.filter((path) => /\.(js|css)$/.test(path))) {
 for (const bundle of bundles.sort((a, b) => b.bytes - a.bytes).slice(0, 3)) {
   process.stdout.write(bundle.name + ': ' + (bundle.bytes / 1024).toFixed(1) + ' KiB gzip\n')
 }
-process.stdout.write('Verified 43 real static pages, canonical URLs, search metadata, structured data, crawler access, the complete sitemap, 11 projects, 6 live-site links, 4 featured credentials, 30 supplied write-ups, nine lab walkthroughs, 97 steps, 69 reviewed screenshots, 21 viewable certificates, removed course/networking content, navigation and public-data boundaries.\n')
+process.stdout.write('Verified 43 real static pages, the Google verification file, canonical URLs, search metadata, structured data, crawler access, the complete sitemap, 11 projects, 6 live-site links, 4 featured credentials, 30 supplied write-ups, nine lab walkthroughs, 97 steps, 69 reviewed screenshots, 21 viewable certificates, removed course/networking content, navigation and public-data boundaries.\n')
 
